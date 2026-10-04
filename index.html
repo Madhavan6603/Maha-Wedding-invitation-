@@ -1,4 +1,1186 @@
-<!DOCTYPE html><html lang="ta"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#355c45"><title>மகாலட்சுமி — திருமண அழைப்பிதழ்</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Tamil:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"></head><body><div class="texture"></div><main class="book">
-<section class="page active" id="page-1"><div class="ornament top">❦</div><div class="temple-mark"><span></span><span></span><span></span></div><p class="eyebrow">சுபமங்களம்</p><div class="invitation-copy"><p>எங்கள் இல்லத்தின்</p><p class="invite-line">மங்கள நிகழ்விற்கு</p><p>தங்கள் வரவை அன்புடன் எதிர்நோக்குகிறோம்</p></div><div class="name-frame"><div><p class="small-label">மணமகள்</p><h1>மகாலட்சுமி</h1></div></div><p class="date">நவம்பர் 13 · 2026</p><div class="divider"><i></i><span>✦</span><i></i></div><p class="welcome">தங்களின் அன்பும் ஆசீர்வாதமும்<br>எங்கள் புதிய வாழ்வின் முதல் பரிசு.</p><button class="next-button" data-next="1">அழைப்பிதழை தொடர்க <b>›</b></button><div class="ornament bottom">❦</div></section>
-<section class="page" id="page-2"><div class="ornament top">❦</div><p class="eyebrow">திருமண நாள்</p><h2>இனிதே தொடங்கும்<br><em>இல்லறப் பயணம்</em></h2><div class="countdown"><div class="count-box"><strong id="days">00</strong><span>நாட்கள்</span></div><div class="count-box"><strong id="hours">00</strong><span>மணி</span></div><div class="count-box"><strong id="minutes">00</strong><span>நிமிடம்</span></div><div class="count-box"><strong id="seconds">00</strong><span>விநாடி</span></div></div><div class="event-card"><div class="event-date"><strong>12</strong><span>நவம்பர்<br>2026</span></div><div class="event-details"><h3>வரவேற்பு</h3><p>மாலை 7.00 மணி — மணமக்கள் அழைப்பு</p><p>இரவு 7.30 மணி — இசை நிகழ்ச்சி</p><p>இரவு 8.00 மணி — அறுசுவை விருந்து</p></div></div><div class="event-card"><div class="event-date"><strong>13</strong><span>நவம்பர்<br>2026</span></div><div class="event-details"><h3>திருமணம்</h3><p>காலை 6.00 – 7.30 மணி — சுபமுகூர்த்தம்</p><p>காலை 7.30 மணி — மணவிருந்து</p></div></div><button class="next-button" data-next="2">திருமண இடத்தை காண்க <b>›</b></button><div class="ornament bottom">❦</div></section>
-<section class="page" id="page-3"><div class="ornament top">❦</div><p class="eyebrow">திருமண இடம்</p><h2>உங்களை அன்புடன்<br><em>வரவேற்கும் இடம்</em></h2><div class="venue-illustration"><div class="arch arch-a"></div><div class="arch arch-b"></div><div class="lamp">◈</div><div class="leaf-cluster left-cluster">❧</div><div class="leaf-cluster right-cluster">❧</div></div><div class="venue-card"><p class="venue-label">திருமண மண்டபம்</p><h3>அ.டி.பி. திருமண மஹால்</h3><p>ஆரணி – வேலூர் ரோடு</p><p>சேவூர்</p></div><div class="final-message"><p>தங்கள் வருகையால்</p><strong>இவ்விழா சிறப்புறட்டும்</strong><p>அன்புடன் வரவேற்கிறோம்</p></div><div class="actions"><button class="outline-button" data-prev="1">‹ முன் பக்கம்</button><button class="solid-button" data-first="true">மீண்டும் தொடங்க</button></div><div class="ornament bottom">❦</div></section></main><nav class="page-nav"><button class="dot active" data-page="0"></button><button class="dot" data-page="1"></button><button class="dot" data-page="2"></button></nav><script src="script.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  />
+
+  <title>D&M திருமண அழைப்பிதழ் | R. தினேஷ் & P. மகாலட்சுமி</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Arima:wght@600;700;800&family=Noto+Serif+Tamil:wght@400;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    :root {
+      --auspicious-red: #A81B23;
+      --deep-maroon: #680C11;
+      --dark-maroon: #3D070A;
+      --marigold-orange: #E67E22;
+      --metallic-gold: #D4AF37;
+      --gold-light: #F9E79F;
+      --gold-pale: #FFF4C7;
+      --soft-beige: #FDFBF7;
+      --cream: #FFF9EF;
+      --card-bg: #FFFFFF;
+      --text-dark: #2C1810;
+      --text-muted: #6B4C3B;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 50% 20%, #5d0d13 0%, #220407 45%, #0b0102 100%);
+      color: var(--text-dark);
+      font-family: "Noto Serif Tamil", serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* =====================================================
+       APP
+    ===================================================== */
+
+    .app-viewport {
+      width: 100%;
+      max-width: 430px;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(212,175,55,.12),
+          transparent 35%
+        ),
+        var(--soft-beige);
+
+      display: flex;
+      flex-direction: column;
+
+      box-shadow:
+        0 0 50px rgba(0,0,0,.85),
+        inset 0 0 0 1px rgba(212,175,55,.35);
+    }
+
+    /* =====================================================
+       HEADER
+    ===================================================== */
+
+    .nav-header {
+      min-height: 64px;
+
+      padding: 10px 14px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--auspicious-red),
+          var(--deep-maroon)
+        );
+
+      color: white;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      border-bottom: 2px solid var(--metallic-gold);
+
+      z-index: 100;
+
+      box-shadow:
+        0 4px 18px rgba(0,0,0,.28);
+    }
+
+    .hamburger-btn,
+    .audio-toggle-btn {
+      border: 1px solid var(--metallic-gold);
+
+      color: white;
+
+      cursor: pointer;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      transition: .25s ease;
+    }
+
+    .hamburger-btn {
+      width: 40px;
+      height: 40px;
+
+      border-radius: 12px;
+
+      background: rgba(255,255,255,.12);
+
+      font-size: 1.25rem;
+    }
+
+    .audio-toggle-btn {
+      width: 40px;
+      height: 40px;
+
+      border-radius: 50%;
+
+      background: rgba(255,255,255,.12);
+
+      font-size: 1.05rem;
+    }
+
+    .audio-toggle-btn.playing {
+      background: var(--metallic-gold);
+      color: var(--auspicious-red);
+
+      box-shadow:
+        0 0 8px rgba(249,231,159,.8),
+        0 0 20px rgba(212,175,55,.45);
+
+      animation: musicPulse 1.6s infinite;
+    }
+
+    @keyframes musicPulse {
+      50% {
+        transform: scale(1.07);
+      }
+    }
+
+    .header-title {
+      font-family: "Arima", serif;
+      font-weight: 800;
+
+      font-size: 1.05rem;
+
+      color: var(--gold-light);
+
+      letter-spacing: .4px;
+
+      text-align: center;
+    }
+
+    /* =====================================================
+       TAB BAR
+    ===================================================== */
+
+    .tab-bar {
+      display: flex;
+
+      background:
+        linear-gradient(
+          180deg,
+          #f4eee2,
+          #e9dfcf
+        );
+
+      padding: 6px;
+
+      gap: 4px;
+
+      border-bottom: 1px solid var(--metallic-gold);
+
+      z-index: 80;
+    }
+
+    .tab-btn {
+      flex: 1;
+
+      border: none;
+
+      background: transparent;
+
+      padding: 9px 2px;
+
+      border-radius: 11px;
+
+      font-family: "Noto Serif Tamil", serif;
+
+      font-size: .78rem;
+
+      font-weight: 800;
+
+      color: var(--text-muted);
+
+      cursor: pointer;
+
+      transition: .3s ease;
+
+      white-space: nowrap;
+    }
+
+    .tab-btn.active {
+      background:
+        linear-gradient(
+          135deg,
+          var(--auspicious-red),
+          var(--deep-maroon)
+        );
+
+      color: var(--gold-light);
+
+      box-shadow:
+        0 4px 10px rgba(104,12,17,.3);
+    }
+
+    /* =====================================================
+       DRAWER
+    ===================================================== */
+
+    .drawer-overlay {
+      position: absolute;
+
+      inset: 0;
+
+      background: rgba(0,0,0,.68);
+
+      z-index: 200;
+
+      opacity: 0;
+
+      pointer-events: none;
+
+      transition: opacity .3s ease;
+    }
+
+    .drawer-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .side-drawer {
+      position: absolute;
+
+      top: 0;
+      left: -290px;
+
+      width: 280px;
+      height: 100%;
+
+      background: var(--soft-beige);
+
+      z-index: 210;
+
+      border-right: 3px solid var(--metallic-gold);
+
+      box-shadow:
+        5px 0 25px rgba(0,0,0,.45);
+
+      transition:
+        transform .35s cubic-bezier(.25,1,.5,1);
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    .side-drawer.active {
+      transform: translateX(290px);
+    }
+
+    .drawer-header {
+      background:
+        linear-gradient(
+          135deg,
+          var(--auspicious-red),
+          var(--deep-maroon)
+        );
+
+      color: var(--gold-light);
+
+      padding: 28px 18px;
+
+      border-bottom: 2px solid var(--metallic-gold);
+    }
+
+    .drawer-menu {
+      list-style: none;
+
+      padding: 18px 12px;
+
+      display: flex;
+      flex-direction: column;
+
+      gap: 10px;
+    }
+
+    .drawer-item {
+      padding: 14px 16px;
+
+      border-radius: 14px;
+
+      background: white;
+
+      border: 1px solid rgba(212,175,55,.45);
+
+      color: var(--text-dark);
+
+      font-weight: 800;
+
+      font-size: .9rem;
+
+      cursor: pointer;
+
+      display: flex;
+      align-items: center;
+
+      gap: 12px;
+
+      box-shadow:
+        0 4px 12px rgba(0,0,0,.05);
+
+      transition: .2s ease;
+    }
+
+    .drawer-item:active {
+      transform: scale(.97);
+    }
+
+    /* =====================================================
+       PAGES
+    ===================================================== */
+
+    .pages-window {
+      flex: 1;
+
+      min-height: 0;
+
+      overflow: hidden;
+
+      position: relative;
+    }
+
+    .pages-slider {
+      width: 400%;
+      height: 100%;
+
+      display: flex;
+
+      transition:
+        transform .55s cubic-bezier(.22,.9,.35,1);
+
+      will-change: transform;
+    }
+
+    .page-view {
+      flex: 0 0 25%;
+
+      width: 25%;
+      height: 100%;
+
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      padding: 18px 14px 100px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      text-align: center;
+
+      position: relative;
+
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .page-view::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    .page-view::-webkit-scrollbar-thumb {
+      background: var(--metallic-gold);
+      border-radius: 10px;
+    }
+
+    /* =====================================================
+       PREMIUM DECORATION
+    ===================================================== */
+
+    .page-view::before {
+      content: "";
+
+      position: absolute;
+
+      width: 260px;
+      height: 260px;
+
+      border-radius: 50%;
+
+      border: 1px solid rgba(212,175,55,.16);
+
+      top: 20px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      pointer-events: none;
+    }
+
+    .page-view::after {
+      content: "";
+
+      position: absolute;
+
+      width: 180px;
+      height: 180px;
+
+      border-radius: 50%;
+
+      border: 1px dashed rgba(168,27,35,.12);
+
+      top: 60px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      pointer-events: none;
+    }
+
+    /* =====================================================
+       MURUGAN
+       ONLY ON HOME
+    ===================================================== */
+
+    .murugan-header-frame {
+      width: 92px;
+      height: 92px;
+
+      margin: 0 auto 14px;
+
+      border-radius: 50%;
+
+      border: 3px solid var(--metallic-gold);
+
+      padding: 4px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #fff,
+          var(--gold-pale)
+        );
+
+      box-shadow:
+        0 6px 20px rgba(168,27,35,.2),
+        0 0 0 5px rgba(212,175,55,.08);
+
+      overflow: hidden;
+
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+
+      position: relative;
+
+      z-index: 10;
+    }
+
+    .murugan-header-img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      border-radius: 50%;
+    }
+
+    /* =====================================================
+       HEADINGS
+    ===================================================== */
+
+    .page-center-heading {
+      font-family: "Arima", serif;
+
+      font-size: 1.55rem;
+
+      font-weight: 800;
+
+      color: var(--auspicious-red);
+
+      text-align: center;
+
+      margin-bottom: 18px;
+
+      width: 100%;
+
+      position: relative;
+
+      z-index: 10;
+    }
+
+    .page-center-heading::before {
+      content: "✦";
+
+      color: var(--metallic-gold);
+
+      margin-right: 7px;
+
+      font-size: .8rem;
+    }
+
+    .page-center-heading::after {
+      content: "";
+
+      display: block;
+
+      width: 65px;
+      height: 2px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--metallic-gold),
+          transparent
+        );
+
+      margin: 7px auto 0;
+    }
+
+    /* =====================================================
+       HOME CARD
+    ===================================================== */
+
+    .main-card {
+      width: 100%;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.98),
+          rgba(255,249,239,.98)
+        );
+
+      border: 2px solid var(--metallic-gold);
+
+      border-radius: 24px;
+
+      padding: 20px 15px 18px;
+
+      box-shadow:
+        0 15px 35px rgba(74,20,10,.1),
+        inset 0 0 25px rgba(212,175,55,.05);
+
+      margin-top: 5px;
+
+      position: relative;
+
+      z-index: 10;
+
+      overflow: hidden;
+    }
+
+    .main-card::before,
+    .main-card::after {
+      content: "❈";
+
+      position: absolute;
+
+      color: rgba(212,175,55,.3);
+
+      font-size: 2rem;
+    }
+
+    .main-card::before {
+      top: 6px;
+      left: 8px;
+    }
+
+    .main-card::after {
+      bottom: 6px;
+      right: 8px;
+    }
+
+    .invitation-title {
+      font-family: "Arima", serif;
+
+      font-size: 1.65rem;
+
+      font-weight: 800;
+
+      color: var(--auspicious-red);
+
+      margin-bottom: 5px;
+    }
+
+    .invitation-sub {
+      font-size: .86rem;
+
+      color: var(--text-muted);
+
+      margin-bottom: 14px;
+
+      font-weight: 600;
+    }
+
+    .names-summary {
+      font-family: "Arima", serif;
+
+      font-size: 1.5rem;
+
+      font-weight: 800;
+
+      color: var(--text-dark);
+
+      line-height: 1.45;
+    }
+
+    .names-summary .join-line {
+      font-family: "Noto Serif Tamil", serif;
+
+      font-size: .85rem;
+
+      color: var(--marigold-orange);
+
+      font-weight: 800;
+    }
+
+    /* =====================================================
+       COUNTDOWN
+    ===================================================== */
+
+    .timer-container {
+      background:
+        linear-gradient(
+          135deg,
+          #fffaf0,
+          #f8eddb
+        );
+
+      border: 1.5px solid var(--metallic-gold);
+
+      border-radius: 16px;
+
+      padding: 11px;
+
+      margin-top: 16px;
+
+      width: 100%;
+    }
+
+    .timer-title {
+      font-size: .78rem;
+
+      color: var(--text-muted);
+
+      font-weight: 800;
+    }
+
+    .timer-grid {
+      display: flex;
+
+      justify-content: space-around;
+
+      margin-top: 7px;
+    }
+
+    .timer-num {
+      font-family: "Arima", serif;
+
+      font-size: 1.28rem;
+
+      font-weight: 800;
+
+      color: var(--auspicious-red);
+    }
+
+    .timer-lbl {
+      font-size: .67rem;
+
+      color: var(--text-muted);
+
+      font-weight: 700;
+    }
+
+    /* =====================================================
+       PERSON CARDS
+    ===================================================== */
+
+    .person-card {
+      width: 100%;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.98),
+          rgba(255,250,241,.96)
+        );
+
+      border: 1.5px solid var(--metallic-gold);
+
+      border-radius: 20px;
+
+      padding: 19px 17px;
+
+      text-align: center;
+
+      margin-bottom: 15px;
+
+      box-shadow:
+        0 8px 22px rgba(0,0,0,.07);
+
+      position: relative;
+
+      z-index: 10;
+
+      overflow: hidden;
+    }
+
+    .person-card::before {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      top: 0;
+
+      width: 100%;
+      height: 5px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--metallic-gold),
+          var(--auspicious-red),
+          var(--metallic-gold),
+          transparent
+        );
+    }
+
+    .person-tag {
+      font-size: .76rem;
+
+      font-weight: 800;
+
+      color: white;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--auspicious-red),
+          var(--deep-maroon)
+        );
+
+      padding: 4px 14px;
+
+      border-radius: 20px;
+
+      display: inline-block;
+
+      margin-bottom: 9px;
+
+      box-shadow:
+        0 3px 8px rgba(168,27,35,.22);
+    }
+
+    .person-tag.bride-tag {
+      background:
+        linear-gradient(
+          135deg,
+          var(--marigold-orange),
+          var(--auspicious-red)
+        );
+    }
+
+    .person-name {
+      font-family: "Arima", serif;
+
+      font-size: 1.5rem;
+
+      font-weight: 800;
+
+      color: var(--text-dark);
+
+      line-height: 1.4;
+    }
+
+    .family-names {
+      font-size: .93rem;
+
+      color: var(--text-dark);
+
+      line-height: 1.9;
+
+      margin-top: 9px;
+
+      border-top: 1px dashed #ddcda9;
+
+      padding-top: 9px;
+
+      font-weight: 700;
+    }
+
+    /* =====================================================
+       SONG CARD
+    ===================================================== */
+
+    .song-card {
+      width: 100%;
+
+      background:
+        linear-gradient(
+          145deg,
+          #fffaf0,
+          #fff4df
+        );
+
+      border: 1.5px solid var(--metallic-gold);
+
+      border-radius: 18px;
+
+      padding: 17px;
+
+      text-align: center;
+
+      margin-top: 3px;
+
+      position: relative;
+
+      z-index: 10;
+    }
+
+    .song-title {
+      font-size: .94rem;
+
+      font-weight: 800;
+
+      color: var(--auspicious-red);
+
+      margin-bottom: 7px;
+    }
+
+    .song-text {
+      font-size: .86rem;
+
+      color: var(--text-dark);
+
+      line-height: 1.8;
+
+      font-weight: 600;
+    }
+
+    /* =====================================================
+       FLOWER SHOWER
+    ===================================================== */
+
+    .flower-page {
+      position: relative;
+
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    .flower-canvas {
+      position: absolute;
+
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      pointer-events: none;
+
+      z-index: 6;
+    }
+
+    .flower-page > *:not(.flower-canvas) {
+      position: relative;
+
+      z-index: 10;
+    }
+
+    /* =====================================================
+       SCHEDULE
+    ===================================================== */
+
+    .schedule-card {
+      width: 100%;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.98),
+          rgba(255,250,242,.96)
+        );
+
+      border: 1.5px solid var(--metallic-gold);
+
+      border-radius: 20px;
+
+      padding: 18px;
+
+      text-align: left;
+
+      margin-bottom: 16px;
+
+      box-shadow:
+        0 8px 22px rgba(0,0,0,.06);
+
+      position: relative;
+
+      z-index: 10;
+
+      overflow: hidden;
+    }
+
+    .schedule-card::before {
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      left: 0;
+
+      width: 5px;
+      height: 100%;
+
+      background:
+        linear-gradient(
+          180deg,
+          var(--auspicious-red),
+          var(--metallic-gold)
+        );
+    }
+
+    .schedule-header-badge {
+      background:
+        linear-gradient(
+          135deg,
+          var(--auspicious-red),
+          var(--deep-maroon)
+        );
+
+      color: var(--gold-light);
+
+      font-weight: 800;
+
+      font-size: .93rem;
+
+      padding: 7px 13px;
+
+      border-radius: 11px;
+
+      display: inline-block;
+
+      margin-bottom: 12px;
+
+      box-shadow:
+        0 4px 9px rgba(168,27,35,.2);
+    }
+
+    .schedule-header-badge.bride-date {
+      background:
+        linear-gradient(
+          135deg,
+          var(--marigold-orange),
+          var(--auspicious-red)
+        );
+    }
+
+    .schedule-item {
+      font-size: .88rem;
+
+      color: var(--text-dark);
+
+      line-height: 1.8;
+
+      font-weight: 700;
+
+      padding: 7px 0;
+
+      border-bottom: 1px dashed #eadfc8;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      gap: 10px;
+    }
+
+    .schedule-item:last-child {
+      border-bottom: none;
+    }
+
+    .schedule-item strong {
+      color: var(--auspicious-red);
+
+      text-align: right;
+
+      white-space: nowrap;
+    }
+
+    /* =====================================================
+       VENUE
+    ===================================================== */
+
+    .venue-card {
+      width: 100%;
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff,
+          #fff9ef
+        );
+
+      border: 2px solid var(--metallic-gold);
+
+      border-radius: 22px;
+
+      padding: 22px 17px;
+
+      text-align: center;
+
+      box-shadow:
+        0 10px 28px rgba(0,0,0,.07);
+
+      position: relative;
+
+      z-index: 10;
+    }
+
+    .venue-title {
+      font-family: "Arima", serif;
+
+      font-size: 1.4rem;
+
+      font-weight: 800;
+
+      color: var(--auspicious-red);
+
+      margin-bottom: 7px;
+    }
+
+    .venue-hall-name {
+      font-size: 1.15rem;
+
+      font-weight: 800;
+
+      color: var(--text-dark);
+
+      margin-bottom: 9px;
+    }
+
+    .venue-address {
+      font-size: .9rem;
+
+      color: var(--text-muted);
+
+      line-height: 1.7;
+
+      margin-bottom: 17px;
+
+      font-weight: 600;
+    }
+
+    .map-btn {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 8px;
+
+      width: 100%;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--auspicious-red),
+          var(--deep-maroon)
+        );
+
+      color: var(--gold-light);
+
+      font-weight: 800;
+
+      font-size: .95rem;
+
+      padding: 13px 16px;
+
+      border-radius: 14px;
+
+      border: 1.5px solid var(--metallic-gold);
+
+      text-decoration: none;
+
+      box-shadow:
+        0 5px 14px rgba(168,27,35,.3);
+
+      transition: .2s ease;
+    }
+
+    .map-btn:active {
+      transform: scale(.98);
+    }
+
+    /* =====================================================
+       KURAL
+    ===================================================== */
+
+    .kural-card {
+      width: 100%;
+
+      background:
+        linear-gradient(
+          145deg,
+          #fffcf5,
+          #fff6e4
+        );
+
+      border: 1.5px solid var(--metallic-gold);
+
+      border-radius: 17px;
+
+      padding: 16px;
+
+      margin-top: 15px;
+
+      text-align: center;
+
+      position: relative;
+
+      z-index: 10;
+    }
+
+    .kural-title {
+      font-size: .93rem;
+
+      font-weight: 800;
+
+      color: var(--auspicious-red);
+
+      margin-bottom: 8px;
+    }
+
+    .kural-text {
+      font-size: .85rem;
+
+      color: var(--text-d
