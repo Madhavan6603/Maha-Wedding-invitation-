@@ -1,4 +1,322 @@
-<!DOCTYPE html><html lang="ta"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#355c45"><title>மகாலட்சுமி — திருமண அழைப்பிதழ்</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Tamil:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"></head><body><div class="texture"></div><main class="book">
-<section class="page active" id="page-1"><div class="ornament top">❦</div><div class="temple-mark"><span></span><span></span><span></span></div><p class="eyebrow">சுபமங்களம்</p><div class="invitation-copy"><p>எங்கள் இல்லத்தின்</p><p class="invite-line">மங்கள நிகழ்விற்கு</p><p>தங்கள் வரவை அன்புடன் எதிர்நோக்குகிறோம்</p></div><div class="name-frame"><div><p class="small-label">மணமகள்</p><h1>மகாலட்சுமி</h1></div></div><p class="date">நவம்பர் 13 · 2026</p><div class="divider"><i></i><span>✦</span><i></i></div><p class="welcome">தங்களின் அன்பும் ஆசீர்வாதமும்<br>எங்கள் புதிய வாழ்வின் முதல் பரிசு.</p><button class="next-button" data-next="1">அழைப்பிதழை தொடர்க <b>›</b></button><div class="ornament bottom">❦</div></section>
-<section class="page" id="page-2"><div class="ornament top">❦</div><p class="eyebrow">திருமண நாள்</p><h2>இனிதே தொடங்கும்<br><em>இல்லறப் பயணம்</em></h2><div class="countdown"><div class="count-box"><strong id="days">00</strong><span>நாட்கள்</span></div><div class="count-box"><strong id="hours">00</strong><span>மணி</span></div><div class="count-box"><strong id="minutes">00</strong><span>நிமிடம்</span></div><div class="count-box"><strong id="seconds">00</strong><span>விநாடி</span></div></div><div class="event-card"><div class="event-date"><strong>12</strong><span>நவம்பர்<br>2026</span></div><div class="event-details"><h3>வரவேற்பு</h3><p>மாலை 7.00 மணி — மணமக்கள் அழைப்பு</p><p>இரவு 7.30 மணி — இசை நிகழ்ச்சி</p><p>இரவு 8.00 மணி — அறுசுவை விருந்து</p></div></div><div class="event-card"><div class="event-date"><strong>13</strong><span>நவம்பர்<br>2026</span></div><div class="event-details"><h3>திருமணம்</h3><p>காலை 6.00 – 7.30 மணி — சுபமுகூர்த்தம்</p><p>காலை 7.30 மணி — மணவிருந்து</p></div></div><button class="next-button" data-next="2">திருமண இடத்தை காண்க <b>›</b></button><div class="ornament bottom">❦</div></section>
-<section class="page" id="page-3"><div class="ornament top">❦</div><p class="eyebrow">திருமண இடம்</p><h2>உங்களை அன்புடன்<br><em>வரவேற்கும் இடம்</em></h2><div class="venue-illustration"><div class="arch arch-a"></div><div class="arch arch-b"></div><div class="lamp">◈</div><div class="leaf-cluster left-cluster">❧</div><div class="leaf-cluster right-cluster">❧</div></div><div class="venue-card"><p class="venue-label">திருமண மண்டபம்</p><h3>அ.டி.பி. திருமண மஹால்</h3><p>ஆரணி – வேலூர் ரோடு</p><p>சேவூர்</p></div><div class="final-message"><p>தங்கள் வருகையால்</p><strong>இவ்விழா சிறப்புறட்டும்</strong><p>அன்புடன் வரவேற்கிறோம்</p></div><div class="actions"><button class="outline-button" data-prev="1">‹ முன் பக்கம்</button><button class="solid-button" data-first="true">மீண்டும் தொடங்க</button></div><div class="ornament bottom">❦</div></section></main><nav class="page-nav"><button class="dot active" data-page="0"></button><button class="dot" data-page="1"></button><button class="dot" data-page="2"></button></nav><script src="script.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Maha Wedding Invitation</title>
+  <style>
+    :root {
+      --auspicious-red: #800000;
+      --deep-maroon: #500000;
+      --metallic-gold: #d4af37;
+      --soft-gold: #f4e8c1;
+      --bg-cream: #fdfaf3;
+      --text-dark: #333333;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Mukta Malar', 'Latha', 'Tamil Sangam MN', 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #1a1a1a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      min-height: 100dvh;
+      color: var(--text-dark);
+    }
+
+    .app-viewport {
+      width: 100%;
+      max-width: 430px;
+      height: 100vh;
+      height: 100dvh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--bg-cream);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-header {
+      height: auto;
+      min-height: 56px;
+      padding-top: max(14px, env(safe-area-inset-top));
+      padding-bottom: 10px;
+      padding-left: 14px;
+      padding-right: 14px;
+      background: linear-gradient(135deg, var(--auspicious-red), var(--deep-maroon));
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--metallic-gold);
+      z-index: 100;
+      box-sizing: border-box;
+      flex-shrink: 0;
+    }
+
+    .nav-header .menu-btn, 
+    .nav-header .music-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--metallic-gold);
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--soft-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .header-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: var(--soft-gold);
+      text-align: center;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .category-nav {
+      display: flex;
+      background-color: var(--soft-gold);
+      border-bottom: 1px solid var(--metallic-gold);
+      overflow-x: auto;
+      flex-shrink: 0;
+    }
+
+    .nav-tab {
+      flex: 1;
+      padding: 10px 8px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+      color: var(--deep-maroon);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+    }
+
+    .nav-tab.active {
+      background-color: var(--auspicious-red);
+      color: #ffffff;
+      border-radius: 8px 8px 0 0;
+    }
+
+    .content-area {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+      position: relative;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 2px solid var(--metallic-gold);
+      border-radius: 16px;
+      padding: 20px 16px;
+      margin-bottom: 16px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+
+    .god-badge {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 12px auto;
+      border: 2px solid var(--metallic-gold);
+      background-color: var(--bg-cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .god-badge img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .invitation-title {
+      font-size: 22px;
+      color: var(--auspicious-red);
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .invitation-subtitle {
+      font-size: 14px;
+      color: #555555;
+      margin-bottom: 16px;
+    }
+
+    .couple-names {
+      font-size: 20px;
+      font-weight: bold;
+      color: var(--deep-maroon);
+      margin: 12px 0;
+    }
+
+    .date-badge {
+      background: linear-gradient(135deg, var(--auspicious-red), var(--deep-maroon));
+      color: #ffffff;
+      padding: 8px 16px;
+      border-radius: 20px;
+      display: inline-block;
+      font-weight: bold;
+      margin-bottom: 12px;
+      font-size: 15px;
+    }
+
+    .schedule-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px dashed var(--soft-gold);
+      font-size: 15px;
+    }
+
+    .schedule-item:last-child {
+      border-bottom: none;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 14px;
+      color: #444444;
+      line-height: 1.6;
+      margin-top: 16px;
+      padding: 0 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-viewport">
+    <header class="nav-header">
+      <button class="menu-btn" aria-label="Menu">☰</button>
+      <div class="header-title">Maha திருமண அழைப்பிதழ்</div>
+      <button class="music-btn" aria-label="Music">🎵</button>
+    </header>
+
+    <nav class="category-nav">
+      <button class="nav-tab active" onclick="switchTab('home')">முகப்பு</button>
+      <button class="nav-tab" onclick="switchTab('couples')">மணமக்கள்</button>
+      <button class="nav-tab" onclick="switchTab('events')">நிகழ்ச்சி</button>
+      <button class="nav-tab" onclick="switchTab('venue')">மண்டபம்</button>
+    </nav>
+
+    <main class="content-area">
+
+      <section id="home" class="tab-content active">
+        <div class="card">
+          <div class="god-badge">
+            <img src="murugan_small.jpg" alt="ஸ்ரீ பாலமுருகன்">
+          </div>
+          <div class="invitation-title">திருமண அழைப்பிதழ்</div>
+          <div class="invitation-subtitle">இறைவன் அருளால் நடைபெறும் மங்கள திருமணம்</div>
+          
+          <div class="couple-names">
+            R. தினேஷ்<br>
+            <span style="font-size: 14px; color: var(--metallic-gold);">- திருமணம் கரம்பிடிக்கும் -</span><br>
+            P. மகாலட்சுமி
+          </div>
+
+          <div class="footer-note">
+            எங்கள் இல்லத் திருமண விழாவிற்கு வருகை தந்து மணமக்களை வாழ்த்த அன்புடன் அழைக்கிறோம்!
+          </div>
+        </div>
+      </section>
+
+      <section id="couples" class="tab-content">
+        <div class="card">
+          <div class="invitation-title">மணமக்கள்</div>
+          <p style="margin-top: 10px; font-size: 16px;"><strong>மணமகன்:</strong> R. தினேஷ்</p>
+          <p style="margin-top: 10px; font-size: 16px;"><strong>மணமகள்:</strong> P. மகாலட்சுமி (Maha)</p>
+        </div>
+      </section>
+
+      <section id="events" class="tab-content">
+        <div class="card">
+          <div class="date-badge">12-11-2026 வியாழக்கிழமை</div>
+          <div class="schedule-item">
+            <span>மணமக்கள் வரவேற்பு</span>
+            <span>மாலை 7.00 மணி</span>
+          </div>
+          <div class="schedule-item">
+            <span>DJ Music</span>
+            <span>இரவு 7.30 மணி</span>
+          </div>
+          <div class="schedule-item">
+            <span>அறுசுவை விருந்து</span>
+            <span>இரவு 8.00 மணி</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="date-badge">13-11-2026 வெள்ளிக்கிழமை</div>
+          <div class="schedule-item">
+            <span>சுபமுஹூர்த்தம்</span>
+            <span>காலை 6.00 - 7.30 மணி</span>
+          </div>
+          <div class="schedule-item">
+            <span>மணவிருந்து</span>
+            <span>காலை 7.30 மணி</span>
+          </div>
+        </div>
+
+        <div class="footer-note">
+          உற்றார் உறவினர் அனைவரும் வருகை தந்து மணமக்களை வாழ்த்துமாறு அன்புடன் கேட்டுக்கொள்கிறோம்!
+        </div>
+      </section>
+
+      <section id="venue" class="tab-content">
+        <div class="card">
+          <div class="invitation-title">திருமண மண்டபம்</div>
+          <p style="margin-top: 10px; font-size: 15px; line-height: 1.5;">
+            A.D.B. திருமண மஹால், சேவூர், ஆரணி.
+          </p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    function switchTab(tabId) {
+      const tabs = document.querySelectorAll('.nav-tab');
+      const contents = document.querySelectorAll('.tab-content');
+
+      tabs.forEach(tab => tab.classList.remove('active'));
+      contents.forEach(content => content.classList.remove('active'));
+
+      event.currentTarget.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+  </script>
+</body>
+</html>
