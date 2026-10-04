@@ -5,7 +5,7 @@
 
   <meta
     name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
   />
 
   <title>D&M திருமண அழைப்பிதழ் | R. தினேஷ் & P. மகாலட்சுமி</title>
@@ -45,8 +45,7 @@
     html,
     body {
       width: 100%;
-      min-height: 100vh;
-      min-height: 100dvh;
+      height: 100%;
     }
 
     body {
@@ -57,8 +56,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow-x: hidden;
-      overflow-y: auto;
+      overflow: hidden;
     }
 
     /* =====================================================
@@ -69,7 +67,6 @@
       width: 100%;
       max-width: 430px;
       height: 100vh;
-      height: 100dvh;
       position: relative;
       overflow: hidden;
 
@@ -96,10 +93,7 @@
     .nav-header {
       min-height: 64px;
 
-      padding-top: max(10px, env(safe-area-inset-top));
-      padding-bottom: 10px;
-      padding-left: 14px;
-      padding-right: 14px;
+      padding: 10px 14px;
 
       background:
         linear-gradient(
@@ -316,7 +310,7 @@
 
       color: var(--gold-light);
 
-      padding: max(28px, env(safe-area-inset-top)) 18px 28px 18px;
+      padding: 28px 18px;
 
       border-bottom: 2px solid var(--metallic-gold);
     }
@@ -1171,4 +1165,22 @@
 
       text-align: center;
 
-      posit
+      position: relative;
+
+      z-index: 10;
+    }
+
+    .kural-title {
+      font-size: .93rem;
+
+      font-weight: 800;
+
+      color: var(--auspicious-red);
+
+      margin-bottom: 8px;
+    }
+
+    .kural-text {
+      font-size: .85rem;
+
+      color: var(--text-d
