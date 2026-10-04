@@ -1,322 +1,2766 @@
 <!DOCTYPE html>
 <html lang="ta">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Maha Wedding Invitation</title>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  />
+
+  <title>D&M திருமண அழைப்பிதழ் | R. தினேஷ் & P. மகாலட்சுமி</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Arima:wght@600;700;800&family=Noto+Serif+Tamil:wght@400;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
   <style>
+
     :root {
-      --auspicious-red: #800000;
-      --deep-maroon: #500000;
-      --metallic-gold: #d4af37;
-      --soft-gold: #f4e8c1;
-      --bg-cream: #fdfaf3;
-      --text-dark: #333333;
+      --auspicious-red: #A81B23;
+      --deep-maroon: #680C11;
+      --dark-maroon: #3D070A;
+      --marigold-orange: #E67E22;
+      --metallic-gold: #D4AF37;
+      --gold-light: #F9E79F;
+      --gold-pale: #FFF4C7;
+      --soft-beige: #FDFBF7;
+      --cream: #FFF9EF;
+      --card-bg: #FFFFFF;
+      --text-dark: #2C1810;
+      --text-muted: #6B4C3B;
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Mukta Malar', 'Latha', 'Tamil Sangam MN', 'Segoe UI', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
     }
 
     body {
-      background-color: #1a1a1a;
+      background:
+        radial-gradient(circle at 50% 20%, #5d0d13 0%, #220407 45%, #0b0102 100%);
+      color: var(--text-dark);
+      font-family: "Noto Serif Tamil", serif;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
-      min-height: 100dvh;
-      color: var(--text-dark);
+      overflow: hidden;
     }
+
+    /* =====================================================
+       APP
+    ===================================================== */
 
     .app-viewport {
       width: 100%;
       max-width: 430px;
       height: 100vh;
-      height: 100dvh;
       position: relative;
       overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(212,175,55,.12),
+          transparent 35%
+        ),
+        var(--soft-beige);
+
       display: flex;
       flex-direction: column;
-      background-color: var(--bg-cream);
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+
+      box-shadow:
+        0 0 50px rgba(0,0,0,.85),
+        inset 0 0 0 1px rgba(212,175,55,.35);
     }
 
+    /* =====================================================
+       HEADER
+    ===================================================== */
+
     .nav-header {
-      height: auto;
-      min-height: 56px;
-      padding-top: max(14px, env(safe-area-inset-top));
-      padding-bottom: 10px;
-      padding-left: 14px;
-      padding-right: 14px;
-      background: linear-gradient(135deg, var(--auspicious-red), var(--deep-maroon));
-      color: #ffffff;
+      min-height: 64px;
+
+      padding: 10px 14px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--auspicious-red),
+          var(--deep-maroon)
+        );
+
+      color: white;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       border-bottom: 2px solid var(--metallic-gold);
+
       z-index: 100;
-      box-sizing: border-box;
-      flex-shrink: 0;
+
+      box-shadow:
+        0 4px 18px rgba(0,0,0,.28);
     }
 
-    .nav-header .menu-btn, 
-    .nav-header .music-btn {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
+    .hamburger-btn,
+    .audio-toggle-btn {
       border: 1px solid var(--metallic-gold);
-      background: rgba(255, 255, 255, 0.1);
-      color: var(--soft-gold);
+
+      color: white;
+
+      cursor: pointer;
+
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
-      font-size: 16px;
+
+      transition: .25s ease;
+    }
+
+    .hamburger-btn {
+      width: 40px;
+      height: 40px;
+
+      border-radius: 12px;
+
+      background: rgba(255,255,255,.12);
+
+      font-size: 1.25rem;
+    }
+
+    .audio-toggle-btn {
+      width: 40px;
+      height: 40px;
+
+      border-radius: 50%;
+
+      background: rgba(255,255,255,.12);
+
+      font-size: 1.05rem;
+    }
+
+    .audio-toggle-btn.playing {
+      background: var(--metallic-gold);
+      color: var(--auspicious-red);
+
+      box-shadow:
+        0 0 8px rgba(249,231,159,.8),
+        0 0 20px rgba(212,175,55,.45);
+
+      animation: musicPulse 1.6s infinite;
+    }
+
+    @keyframes musicPulse {
+      50% {
+        transform: scale(1.07);
+      }
     }
 
     .header-title {
-      font-size: 18px;
-      font-weight: bold;
-      color: var(--soft-gold);
+      font-family: "Arima", serif;
+      font-weight: 800;
+
+      font-size: 1.05rem;
+
+      color: var(--gold-light);
+
+      letter-spacing: .4px;
+
       text-align: center;
-      letter-spacing: 0.5px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
 
-    .category-nav {
+    /* =====================================================
+       TAB BAR
+    ===================================================== */
+
+    .tab-bar {
       display: flex;
-      background-color: var(--soft-gold);
+
+      background:
+        linear-gradient(
+          180deg,
+          #f4eee2,
+          #e9dfcf
+        );
+
+      padding: 6px;
+
+      gap: 4px;
+
       border-bottom: 1px solid var(--metallic-gold);
-      overflow-x: auto;
-      flex-shrink: 0;
+
+      z-index: 80;
     }
 
-    .nav-tab {
+    .tab-btn {
       flex: 1;
-      padding: 10px 8px;
-      text-align: center;
-      font-size: 14px;
-      font-weight: bold;
-      color: var(--deep-maroon);
-      background: transparent;
+
       border: none;
+
+      background: transparent;
+
+      padding: 9px 2px;
+
+      border-radius: 11px;
+
+      font-family: "Noto Serif Tamil", serif;
+
+      font-size: .78rem;
+
+      font-weight: 800;
+
+      color: var(--text-muted);
+
       cursor: pointer;
+
+      transition: .3s ease;
+
       white-space: nowrap;
-      transition: all 0.3s ease;
     }
 
-    .nav-tab.active {
-      background-color: var(--auspicious-red);
-      color: #ffffff;
-      border-radius: 8px 8px 0 0;
+    .tab-btn.active {
+      background:
+        linear-gradient(
+          135deg,
+          var(--auspicious-red),
+          var(--deep-maroon)
+        );
+
+      color: var(--gold-light);
+
+      box-shadow:
+        0 4px 10px rgba(104,12,17,.3);
     }
 
-    .content-area {
-      flex: 1;
-      overflow-y: auto;
-      padding: 16px;
-      position: relative;
+    /* =====================================================
+       DRAWER
+    ===================================================== */
+
+    .drawer-overlay {
+      position: absolute;
+
+      inset: 0;
+
+      background: rgba(0,0,0,.68);
+
+      z-index: 200;
+
+      opacity: 0;
+
+      pointer-events: none;
+
+      transition: opacity .3s ease;
     }
 
-    .tab-content {
-      display: none;
+    .drawer-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
     }
 
-    .tab-content.active {
-      display: block;
+    .side-drawer {
+      position: absolute;
+
+      top: 0;
+      left: -290px;
+
+      width: 280px;
+      height: 100%;
+
+      background: var(--soft-beige);
+
+      z-index: 210;
+
+      border-right: 3px solid var(--metallic-gold);
+
+      box-shadow:
+        5px 0 25px rgba(0,0,0,.45);
+
+      transition:
+        transform .35s cubic-bezier(.25,1,.5,1);
+
+      display: flex;
+      flex-direction: column;
     }
 
-    .card {
-      background: #ffffff;
-      border: 2px solid var(--metallic-gold);
-      border-radius: 16px;
-      padding: 20px 16px;
-      margin-bottom: 16px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-      position: relative;
+    .side-drawer.active {
+      transform: translateX(290px);
     }
 
-    .god-badge {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      overflow: hidden;
-      margin: 0 auto 12px auto;
-      border: 2px solid var(--metallic-gold);
-      background-color: var(--bg-cream);
+    .drawer-header {
+      background:
+        linear-gradient(
+          135deg,
+          var(--auspicious-red),
+          var(--deep-maroon)
+        );
+
+      color: var(--gold-light);
+
+      padding: 28px 18px;
+
+      border-bottom: 2px solid var(--metallic-gold);
+    }
+
+    .drawer-menu {
+      list-style: none;
+
+      padding: 18px 12px;
+
+      display: flex;
+      flex-direction: column;
+
+      gap: 10px;
+    }
+
+    .drawer-item {
+      padding: 14px 16px;
+
+      border-radius: 14px;
+
+      background: white;
+
+      border: 1px solid rgba(212,175,55,.45);
+
+      color: var(--text-dark);
+
+      font-weight: 800;
+
+      font-size: .9rem;
+
+      cursor: pointer;
+
       display: flex;
       align-items: center;
-      justify-content: center;
+
+      gap: 12px;
+
+      box-shadow:
+        0 4px 12px rgba(0,0,0,.05);
+
+      transition: .2s ease;
     }
 
-    .god-badge img {
+    .drawer-item:active {
+      transform: scale(.97);
+    }
+
+    /* =====================================================
+       PAGES
+    ===================================================== */
+
+    .pages-window {
+      flex: 1;
+
+      min-height: 0;
+
+      overflow: hidden;
+
+      position: relative;
+    }
+
+    .pages-slider {
+      width: 400%;
+      height: 100%;
+
+      display: flex;
+
+      transition:
+        transform .55s cubic-bezier(.22,.9,.35,1);
+
+      will-change: transform;
+    }
+
+    .page-view {
+      flex: 0 0 25%;
+
+      width: 25%;
+      height: 100%;
+
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      padding: 18px 14px 100px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      text-align: center;
+
+      position: relative;
+
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .page-view::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    .page-view::-webkit-scrollbar-thumb {
+      background: var(--metallic-gold);
+      border-radius: 10px;
+    }
+
+    /* =====================================================
+       PREMIUM DECORATION
+    ===================================================== */
+
+    .page-view::before {
+      content: "";
+
+      position: absolute;
+
+      width: 260px;
+      height: 260px;
+
+      border-radius: 50%;
+
+      border: 1px solid rgba(212,175,55,.16);
+
+      top: 20px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      pointer-events: none;
+    }
+
+    .page-view::after {
+      content: "";
+
+      position: absolute;
+
+      width: 180px;
+      height: 180px;
+
+      border-radius: 50%;
+
+      border: 1px dashed rgba(168,27,35,.12);
+
+      top: 60px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      pointer-events: none;
+    }
+
+    /* =====================================================
+       MURUGAN
+       ONLY ON HOME
+    ===================================================== */
+
+    .murugan-header-frame {
+      width: 92px;
+      height: 92px;
+
+      margin: 0 auto 14px;
+
+      border-radius: 50%;
+
+      border: 3px solid var(--metallic-gold);
+
+      padding: 4px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #fff,
+          var(--gold-pale)
+        );
+
+      box-shadow:
+        0 6px 20px rgba(168,27,35,.2),
+        0 0 0 5px rgba(212,175,55,.08);
+
+      overflow: hidden;
+
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+
+      position: relative;
+
+      z-index: 10;
+    }
+
+    .murugan-header-img {
       width: 100%;
       height: 100%;
+
       object-fit: cover;
+
+      border-radius: 50%;
+    }
+
+    /* =====================================================
+       HEADINGS
+    ===================================================== */
+
+    .page-center-heading {
+      font-family: "Arima", serif;
+
+      font-size: 1.55rem;
+
+      font-weight: 800;
+
+      color: var(--auspicious-red);
+
+      text-align: center;
+
+      margin-bottom: 18px;
+
+      width: 100%;
+
+      position: relative;
+
+      z-index: 10;
+    }
+
+    .page-center-heading::before {
+      content: "✦";
+
+      color: var(--metallic-gold);
+
+      margin-right: 7px;
+
+      font-size: .8rem;
+    }
+
+    .page-center-heading::after {
+      content: "";
+
+      display: block;
+
+      width: 65px;
+      height: 2px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--metallic-gold),
+          transparent
+        );
+
+      margin: 7px auto 0;
+    }
+
+    /* =====================================================
+       HOME CARD
+    ===================================================== */
+
+    .main-card {
+      width: 100%;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.98),
+          rgba(255,249,239,.98)
+        );
+
+      border: 2px solid var(--metallic-gold);
+
+      border-radius: 24px;
+
+      padding: 20px 15px 18px;
+
+      box-shadow:
+        0 15px 35px rgba(74,20,10,.1),
+        inset 0 0 25px rgba(212,175,55,.05);
+
+      margin-top: 5px;
+
+      position: relative;
+
+      z-index: 10;
+
+      overflow: hidden;
+    }
+
+    .main-card::before,
+    .main-card::after {
+      content: "❈";
+
+      position: absolute;
+
+      color: rgba(212,175,55,.3);
+
+      font-size: 2rem;
+    }
+
+    .main-card::before {
+      top: 6px;
+      left: 8px;
+    }
+
+    .main-card::after {
+      bottom: 6px;
+      right: 8px;
     }
 
     .invitation-title {
-      font-size: 22px;
+      font-family: "Arima", serif;
+
+      font-size: 1.65rem;
+
+      font-weight: 800;
+
       color: var(--auspicious-red);
-      font-weight: bold;
-      margin-bottom: 8px;
+
+      margin-bottom: 5px;
     }
 
-    .invitation-subtitle {
-      font-size: 14px;
-      color: #555555;
-      margin-bottom: 16px;
+    .invitation-sub {
+      font-size: .86rem;
+
+      color: var(--text-muted);
+
+      margin-bottom: 14px;
+
+      font-weight: 600;
     }
 
-    .couple-names {
-      font-size: 20px;
-      font-weight: bold;
-      color: var(--deep-maroon);
-      margin: 12px 0;
+    .names-summary {
+      font-family: "Arima", serif;
+
+      font-size: 1.5rem;
+
+      font-weight: 800;
+
+      color: var(--text-dark);
+
+      line-height: 1.45;
     }
 
-    .date-badge {
-      background: linear-gradient(135deg, var(--auspicious-red), var(--deep-maroon));
-      color: #ffffff;
-      padding: 8px 16px;
+    .names-summary .join-line {
+      font-family: "Noto Serif Tamil", serif;
+
+      font-size: .85rem;
+
+      color: var(--marigold-orange);
+
+      font-weight: 800;
+    }
+
+    /* =====================================================
+       COUNTDOWN
+    ===================================================== */
+
+    .timer-container {
+      background:
+        linear-gradient(
+          135deg,
+          #fffaf0,
+          #f8eddb
+        );
+
+      border: 1.5px solid var(--metallic-gold);
+
+      border-radius: 16px;
+
+      padding: 11px;
+
+      margin-top: 16px;
+
+      width: 100%;
+    }
+
+    .timer-title {
+      font-size: .78rem;
+
+      color: var(--text-muted);
+
+      font-weight: 800;
+    }
+
+    .timer-grid {
+      display: flex;
+
+      justify-content: space-around;
+
+      margin-top: 7px;
+    }
+
+    .timer-num {
+      font-family: "Arima", serif;
+
+      font-size: 1.28rem;
+
+      font-weight: 800;
+
+      color: var(--auspicious-red);
+    }
+
+    .timer-lbl {
+      font-size: .67rem;
+
+      color: var(--text-muted);
+
+      font-weight: 700;
+    }
+
+    /* =====================================================
+       PERSON CARDS
+    ===================================================== */
+
+    .person-card {
+      width: 100%;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.98),
+          rgba(255,250,241,.96)
+        );
+
+      border: 1.5px solid var(--metallic-gold);
+
       border-radius: 20px;
+
+      padding: 19px 17px;
+
+      text-align: center;
+
+      margin-bottom: 15px;
+
+      box-shadow:
+        0 8px 22px rgba(0,0,0,.07);
+
+      position: relative;
+
+      z-index: 10;
+
+      overflow: hidden;
+    }
+
+    .person-card::before {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      top: 0;
+
+      width: 100%;
+      height: 5px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--metallic-gold),
+          var(--auspicious-red),
+          var(--metallic-gold),
+          transparent
+        );
+    }
+
+    .person-tag {
+      font-size: .76rem;
+
+      font-weight: 800;
+
+      color: white;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--auspicious-red),
+          var(--deep-maroon)
+        );
+
+      padding: 4px 14px;
+
+      border-radius: 20px;
+
       display: inline-block;
-      font-weight: bold;
+
+      margin-bottom: 9px;
+
+      box-shadow:
+        0 3px 8px rgba(168,27,35,.22);
+    }
+
+    .person-tag.bride-tag {
+      background:
+        linear-gradient(
+          135deg,
+          var(--marigold-orange),
+          var(--auspicious-red)
+        );
+    }
+
+    .person-name {
+      font-family: "Arima", serif;
+
+      font-size: 1.5rem;
+
+      font-weight: 800;
+
+      color: var(--text-dark);
+
+      line-height: 1.4;
+    }
+
+    .family-names {
+      font-size: .93rem;
+
+      color: var(--text-dark);
+
+      line-height: 1.9;
+
+      margin-top: 9px;
+
+      border-top: 1px dashed #ddcda9;
+
+      padding-top: 9px;
+
+      font-weight: 700;
+    }
+
+    /* =====================================================
+       SONG CARD
+    ===================================================== */
+
+    .song-card {
+      width: 100%;
+
+      background:
+        linear-gradient(
+          145deg,
+          #fffaf0,
+          #fff4df
+        );
+
+      border: 1.5px solid var(--metallic-gold);
+
+      border-radius: 18px;
+
+      padding: 17px;
+
+      text-align: center;
+
+      margin-top: 3px;
+
+      position: relative;
+
+      z-index: 10;
+    }
+
+    .song-title {
+      font-size: .94rem;
+
+      font-weight: 800;
+
+      color: var(--auspicious-red);
+
+      margin-bottom: 7px;
+    }
+
+    .song-text {
+      font-size: .86rem;
+
+      color: var(--text-dark);
+
+      line-height: 1.8;
+
+      font-weight: 600;
+    }
+
+    /* =====================================================
+       FLOWER SHOWER
+    ===================================================== */
+
+    .flower-page {
+      position: relative;
+
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    .flower-canvas {
+      position: absolute;
+
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      pointer-events: none;
+
+      z-index: 6;
+    }
+
+    .flower-page > *:not(.flower-canvas) {
+      position: relative;
+
+      z-index: 10;
+    }
+
+    /* =====================================================
+       SCHEDULE
+    ===================================================== */
+
+    .schedule-card {
+      width: 100%;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.98),
+          rgba(255,250,242,.96)
+        );
+
+      border: 1.5px solid var(--metallic-gold);
+
+      border-radius: 20px;
+
+      padding: 18px;
+
+      text-align: left;
+
+      margin-bottom: 16px;
+
+      box-shadow:
+        0 8px 22px rgba(0,0,0,.06);
+
+      position: relative;
+
+      z-index: 10;
+
+      overflow: hidden;
+    }
+
+    .schedule-card::before {
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      left: 0;
+
+      width: 5px;
+      height: 100%;
+
+      background:
+        linear-gradient(
+          180deg,
+          var(--auspicious-red),
+          var(--metallic-gold)
+        );
+    }
+
+    .schedule-header-badge {
+      background:
+        linear-gradient(
+          135deg,
+          var(--auspicious-red),
+          var(--deep-maroon)
+        );
+
+      color: var(--gold-light);
+
+      font-weight: 800;
+
+      font-size: .93rem;
+
+      padding: 7px 13px;
+
+      border-radius: 11px;
+
+      display: inline-block;
+
       margin-bottom: 12px;
-      font-size: 15px;
+
+      box-shadow:
+        0 4px 9px rgba(168,27,35,.2);
+    }
+
+    .schedule-header-badge.bride-date {
+      background:
+        linear-gradient(
+          135deg,
+          var(--marigold-orange),
+          var(--auspicious-red)
+        );
     }
 
     .schedule-item {
+      font-size: .88rem;
+
+      color: var(--text-dark);
+
+      line-height: 1.8;
+
+      font-weight: 700;
+
+      padding: 7px 0;
+
+      border-bottom: 1px dashed #eadfc8;
+
       display: flex;
+
       justify-content: space-between;
-      padding: 8px 0;
-      border-bottom: 1px dashed var(--soft-gold);
-      font-size: 15px;
+
+      align-items: center;
+
+      gap: 10px;
     }
 
     .schedule-item:last-child {
       border-bottom: none;
     }
 
-    .footer-note {
-      text-align: center;
-      font-size: 14px;
-      color: #444444;
-      line-height: 1.6;
-      margin-top: 16px;
-      padding: 0 10px;
+    .schedule-item strong {
+      color: var(--auspicious-red);
+
+      text-align: right;
+
+      white-space: nowrap;
     }
+
+    /* =====================================================
+       VENUE
+    ===================================================== */
+
+    .venue-card {
+      width: 100%;
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff,
+          #fff9ef
+        );
+
+      border: 2px solid var(--metallic-gold);
+
+      border-radius: 22px;
+
+      padding: 22px 17px;
+
+      text-align: center;
+
+      box-shadow:
+        0 10px 28px rgba(0,0,0,.07);
+
+      position: relative;
+
+      z-index: 10;
+    }
+
+    .venue-title {
+      font-family: "Arima", serif;
+
+      font-size: 1.4rem;
+
+      font-weight: 800;
+
+      color: var(--auspicious-red);
+
+      margin-bottom: 7px;
+    }
+
+    .venue-hall-name {
+      font-size: 1.15rem;
+
+      font-weight: 800;
+
+      color: var(--text-dark);
+
+      margin-bottom: 9px;
+    }
+
+    .venue-address {
+      font-size: .9rem;
+
+      color: var(--text-muted);
+
+      line-height: 1.7;
+
+      margin-bottom: 17px;
+
+      font-weight: 600;
+    }
+
+    .map-btn {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 8px;
+
+      width: 100%;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--auspicious-red),
+          var(--deep-maroon)
+        );
+
+      color: var(--gold-light);
+
+      font-weight: 800;
+
+      font-size: .95rem;
+
+      padding: 13px 16px;
+
+      border-radius: 14px;
+
+      border: 1.5px solid var(--metallic-gold);
+
+      text-decoration: none;
+
+      box-shadow:
+        0 5px 14px rgba(168,27,35,.3);
+
+      transition: .2s ease;
+    }
+
+    .map-btn:active {
+      transform: scale(.98);
+    }
+
+    /* =====================================================
+       KURAL
+    ===================================================== */
+
+    .kural-card {
+      width: 100%;
+
+      background:
+        linear-gradient(
+          145deg,
+          #fffcf5,
+          #fff6e4
+        );
+
+      border: 1.5px solid var(--metallic-gold);
+
+      border-radius: 17px;
+
+      padding: 16px;
+
+      margin-top: 15px;
+
+      text-align: center;
+
+      position: relative;
+
+      z-index: 10;
+    }
+
+    .kural-title {
+      font-size: .93rem;
+
+      font-weight: 800;
+
+      color: var(--auspicious-red);
+
+      margin-bottom: 8px;
+    }
+
+    .kural-text {
+      font-size: .85rem;
+
+      color: var(--text-dark);
+
+      line-height: 1.8;
+
+      font-weight: 600;
+
+      font-style: italic;
+    }
+
+    .kural-author {
+      font-size: .76rem;
+
+      color: var(--text-muted);
+
+      margin-top: 6px;
+
+      font-weight: 700;
+    }
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    .footer-note {
+      font-size: .84rem;
+
+      color: var(--text-muted);
+
+      margin-top: 16px;
+
+      margin-bottom: 20px;
+
+      line-height: 1.7;
+
+      font-weight: 700;
+
+      width: 100%;
+
+      padding: 0 7px;
+
+      position: relative;
+
+      z-index: 10;
+    }
+
+    /* =====================================================
+       PAGE NAVIGATION
+    ===================================================== */
+
+    .page-navigation {
+      position: absolute;
+
+      bottom: 14px;
+
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      z-index: 120;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      background: rgba(255,255,255,.94);
+
+      border: 1px solid var(--metallic-gold);
+
+      border-radius: 30px;
+
+      padding: 5px 7px;
+
+      box-shadow:
+        0 6px 18px rgba(0,0,0,.15);
+
+      backdrop-filter: blur(8px);
+    }
+
+    .page-nav-btn {
+      width: 35px;
+      height: 35px;
+
+      border: none;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--auspicious-red),
+          var(--deep-maroon)
+        );
+
+      color: var(--gold-light);
+
+      font-size: 1rem;
+
+      cursor: pointer;
+    }
+
+    .page-dots {
+      display: flex;
+
+      gap: 5px;
+    }
+
+    .page-dot {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: #d7c9b0;
+
+      transition: .25s ease;
+    }
+
+    .page-dot.active {
+      width: 18px;
+
+      border-radius: 8px;
+
+      background: var(--auspicious-red);
+    }
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+
+    @media (max-width: 360px) {
+
+      .tab-btn {
+        font-size: .69rem;
+      }
+
+      .person-name {
+        font-size: 1.35rem;
+      }
+
+      .schedule-item {
+        font-size: .82rem;
+      }
+
+      .schedule-item strong {
+        font-size: .78rem;
+      }
+    }
+
   </style>
 </head>
+
 <body>
 
+  <!-- =====================================================
+       MUSIC
+  ===================================================== -->
+
+  <!--
+    Put your actual music file in the same folder:
+    wedding-music.mp3
+
+    Browser autoplay restrictions mean the visitor must
+    tap the 🎵 button once before music can start.
+  -->
+
+  <audio
+    id="weddingAudio"
+    loop
+    preload="metadata"
+  >
+    <source src="wedding-music.mp3" type="audio/mpeg">
+  </audio>
+
+
   <div class="app-viewport">
+
+    <!-- ===================================================
+         HEADER
+    =================================================== -->
+
     <header class="nav-header">
-      <button class="menu-btn" aria-label="Menu">☰</button>
-      <div class="header-title">Maha திருமண அழைப்பிதழ்</div>
-      <button class="music-btn" aria-label="Music">🎵</button>
+
+      <button
+        class="hamburger-btn"
+        onclick="toggleDrawer(true)"
+        aria-label="Menu"
+      >
+        ☰
+      </button>
+
+      <div class="header-title">
+        D&M திருமண அழைப்பிதழ்
+      </div>
+
+      <button
+        class="audio-toggle-btn"
+        id="audioBtn"
+        onclick="toggleAudio()"
+        title="இசை இயக்கம் / நிறுத்தம்"
+        aria-label="Music"
+      >
+        <span id="audioIcon">🎵</span>
+      </button>
+
     </header>
 
-    <nav class="category-nav">
-      <button class="nav-tab active" onclick="switchTab('home')">முகப்பு</button>
-      <button class="nav-tab" onclick="switchTab('couples')">மணமக்கள்</button>
-      <button class="nav-tab" onclick="switchTab('events')">நிகழ்ச்சி</button>
-      <button class="nav-tab" onclick="switchTab('venue')">மண்டபம்</button>
+
+    <!-- ===================================================
+         DRAWER
+    =================================================== -->
+
+    <div
+      class="drawer-overlay"
+      id="drawerOverlay"
+      onclick="toggleDrawer(false)"
+    ></div>
+
+
+    <aside
+      class="side-drawer"
+      id="sideDrawer"
+    >
+
+      <div class="drawer-header">
+
+        <h3 style="font-size:1.2rem;">
+          D&M திருமண அழைப்பிதழ்
+        </h3>
+
+        <p
+          style="
+            font-size:.85rem;
+            margin-top:5px;
+            color:#fff;
+          "
+        >
+          R. தினேஷ் & P. மகாலட்சுமி
+        </p>
+
+      </div>
+
+
+      <ul class="drawer-menu">
+
+        <li
+          class="drawer-item"
+          onclick="navigateFromDrawer(0)"
+        >
+          🪔 முகப்பு
+        </li>
+
+        <li
+          class="drawer-item"
+          onclick="navigateFromDrawer(1)"
+        >
+          💐 மணமக்கள்
+        </li>
+
+        <li
+          class="drawer-item"
+          onclick="navigateFromDrawer(2)"
+        >
+          📅 நிகழ்ச்சி நிரல்
+        </li>
+
+        <li
+          class="drawer-item"
+          onclick="navigateFromDrawer(3)"
+        >
+          📍 மண்டபம்
+        </li>
+
+        <li
+          class="drawer-item"
+          onclick="
+            toggleAudio();
+            toggleDrawer(false);
+          "
+        >
+          🎵 திருமண இசை
+        </li>
+
+      </ul>
+
+    </aside>
+
+
+    <!-- ===================================================
+         TOP TABS
+    =================================================== -->
+
+    <nav class="tab-bar">
+
+      <button
+        class="tab-btn active"
+        onclick="goToPage(0)"
+      >
+        முகப்பு
+      </button>
+
+      <button
+        class="tab-btn"
+        onclick="goToPage(1)"
+      >
+        மணமக்கள்
+      </button>
+
+      <button
+        class="tab-btn"
+        onclick="goToPage(2)"
+      >
+        நிகழ்ச்சி
+      </button>
+
+      <button
+        class="tab-btn"
+        onclick="goToPage(3)"
+      >
+        மண்டபம்
+      </button>
+
     </nav>
 
-    <main class="content-area">
 
-      <section id="home" class="tab-content active">
-        <div class="card">
-          <div class="god-badge">
-            <img src="murugan_small.jpg" alt="ஸ்ரீ பாலமுருகன்">
-          </div>
-          <div class="invitation-title">திருமண அழைப்பிதழ்</div>
-          <div class="invitation-subtitle">இறைவன் அருளால் நடைபெறும் மங்கள திருமணம்</div>
-          
-          <div class="couple-names">
-            R. தினேஷ்<br>
-            <span style="font-size: 14px; color: var(--metallic-gold);">- திருமணம் கரம்பிடிக்கும் -</span><br>
-            P. மகாலட்சுமி
+    <!-- ===================================================
+         PAGE WINDOW
+    =================================================== -->
+
+    <div class="pages-window">
+
+      <main
+        class="pages-slider"
+        id="pageSlider"
+      >
+
+
+        <!-- =================================================
+             PAGE 1 — HOME
+        ================================================= -->
+
+        <section class="page-view">
+
+          <div class="main-card">
+
+            <!-- MURUGAN ONLY ON HOME -->
+
+            <div class="murugan-header-frame">
+
+              <img
+                src="murugan_small.jpg"
+                alt="ஸ்ரீ பாலமுருகன்"
+                class="murugan-header-img"
+              >
+
+            </div>
+
+
+            <h1 class="invitation-title">
+              திருமண அழைப்பிதழ்
+            </h1>
+
+
+            <p class="invitation-sub">
+              இறைவன் அருளால் நடைபெறும் மங்கள திருமணம்
+            </p>
+
+
+            <div class="names-summary">
+
+              R. தினேஷ்
+
+              <br>
+
+              <span class="join-line">
+                - திருமணம் கரம்பிடிக்கும் -
+              </span>
+
+              <br>
+
+              P. மகாலட்சுமி
+
+            </div>
+
+
+            <!-- COUNTDOWN -->
+
+            <div class="timer-container">
+
+              <div class="timer-title">
+                திருமணத்திற்கு இன்னும்
+              </div>
+
+
+              <div class="timer-grid">
+
+                <div>
+                  <div
+                    class="timer-num"
+                    id="dNum"
+                  >
+                    00
+                  </div>
+
+                  <div class="timer-lbl">
+                    நாட்கள்
+                  </div>
+                </div>
+
+
+                <div>
+                  <div
+                    class="timer-num"
+                    id="hNum"
+                  >
+                    00
+                  </div>
+
+                  <div class="timer-lbl">
+                    மணி
+                  </div>
+                </div>
+
+
+                <div>
+                  <div
+                    class="timer-num"
+                    id="mNum"
+                  >
+                    00
+                  </div>
+
+                  <div class="timer-lbl">
+                    நிமிடம்
+                  </div>
+                </div>
+
+
+                <div>
+                  <div
+                    class="timer-num"
+                    id="sNum"
+                  >
+                    00
+                  </div>
+
+                  <div class="timer-lbl">
+                    நொடி
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
           </div>
 
-          <div class="footer-note">
-            எங்கள் இல்லத் திருமண விழாவிற்கு வருகை தந்து மணமக்களை வாழ்த்த அன்புடன் அழைக்கிறோம்!
-          </div>
-        </div>
-      </section>
 
-      <section id="couples" class="tab-content">
-        <div class="card">
-          <div class="invitation-title">மணமக்கள்</div>
-          <p style="margin-top: 10px; font-size: 16px;"><strong>மணமகன்:</strong> R. தினேஷ்</p>
-          <p style="margin-top: 10px; font-size: 16px;"><strong>மணமகள்:</strong> P. மகாலட்சுமி (Maha)</p>
-        </div>
-      </section>
-
-      <section id="events" class="tab-content">
-        <div class="card">
-          <div class="date-badge">12-11-2026 வியாழக்கிழமை</div>
-          <div class="schedule-item">
-            <span>மணமக்கள் வரவேற்பு</span>
-            <span>மாலை 7.00 மணி</span>
-          </div>
-          <div class="schedule-item">
-            <span>DJ Music</span>
-            <span>இரவு 7.30 மணி</span>
-          </div>
-          <div class="schedule-item">
-            <span>அறுசுவை விருந்து</span>
-            <span>இரவு 8.00 மணி</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="date-badge">13-11-2026 வெள்ளிக்கிழமை</div>
-          <div class="schedule-item">
-            <span>சுபமுஹூர்த்தம்</span>
-            <span>காலை 6.00 - 7.30 மணி</span>
-          </div>
-          <div class="schedule-item">
-            <span>மணவிருந்து</span>
-            <span>காலை 7.30 மணி</span>
-          </div>
-        </div>
-
-        <div class="footer-note">
-          உற்றார் உறவினர் அனைவரும் வருகை தந்து மணமக்களை வாழ்த்துமாறு அன்புடன் கேட்டுக்கொள்கிறோம்!
-        </div>
-      </section>
-
-      <section id="venue" class="tab-content">
-        <div class="card">
-          <div class="invitation-title">திருமண மண்டபம்</div>
-          <p style="margin-top: 10px; font-size: 15px; line-height: 1.5;">
-            A.D.B. திருமண மஹால், சேவூர், ஆரணி.
+          <p class="footer-note">
+            எங்கள் இல்லத் திருமண விழாவிற்கு வருகை தந்து
+            மணமக்களை வாழ்த்த அன்புடன் அழைக்கிறோம்!
           </p>
-        </div>
-      </section>
 
-    </main>
+        </section>
+
+
+        <!-- =================================================
+             PAGE 2 — BRIDE & GROOM
+             FLOWER SHOWER
+        ================================================= -->
+
+        <section
+          class="page-view flower-page"
+          id="bridePage"
+        >
+
+          <canvas
+            class="flower-canvas"
+            id="brideFlowerCanvas"
+          ></canvas>
+
+
+          <h2 class="page-center-heading">
+            மணமக்கள்
+          </h2>
+
+
+          <!-- GROOM -->
+
+          <div class="person-card">
+
+            <span class="person-tag">
+              மணமகன்
+            </span>
+
+
+            <div class="person-name">
+              R. தினேஷ்
+            </div>
+
+
+            <div class="family-names">
+
+              C. ராதாகிருஷ்ணன்
+              <br>
+
+              R. நவனீதம்
+
+            </div>
+
+          </div>
+
+
+          <!-- BRIDE -->
+
+          <div class="person-card">
+
+            <span class="person-tag bride-tag">
+              மணமகள்
+            </span>
+
+
+            <div class="person-name">
+              P. மகாலட்சுமி
+            </div>
+
+
+            <div class="family-names">
+
+              B. பரமானந்தம்
+              <br>
+
+              P. சாந்தி
+
+            </div>
+
+          </div>
+
+
+          <!-- SONG -->
+
+          <div class="song-card">
+
+            <div class="song-title">
+              🌸 மங்கள வாழ்த்துப் பாடல் 🌸
+            </div>
+
+
+            <div class="song-text">
+
+              மங்கள நாண் சூட்டும் பொன்னான நேரம்!
+              <br>
+
+              மலர் தூவி வாழ்த்தும் நல்லோரின் கூட்டம்!
+              <br>
+
+              இறையருள் சூழ வாழ்வாங்கு வாழ்க!
+              <br>
+
+              தம்பதியர் இருவர் பல்லாண்டு வாழ்க!
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGE 3 — EVENTS
+             FLOWER SHOWER
+        ================================================= -->
+
+        <section
+          class="page-view flower-page"
+          id="eventPage"
+        >
+
+          <canvas
+            class="flower-canvas"
+            id="eventFlowerCanvas"
+          ></canvas>
+
+
+          <h2 class="page-center-heading">
+            நிகழ்ச்சி நிரல்
+          </h2>
+
+
+          <!-- 12 NOV -->
+
+          <div class="schedule-card">
+
+            <div class="schedule-header-badge">
+              12-11-2026 வியாழக்கிழமை
+            </div>
+
+
+            <div class="schedule-item">
+
+              <span>
+                மணமக்கள் அழைப்பு
+              </span>
+
+              <strong>
+                மாலை 7.00 மணி
+              </strong>
+
+            </div>
+
+
+            <div class="schedule-item">
+
+              <span>
+                Dj Music
+              </span>
+
+              <strong>
+                இரவு 7.30 மணி
+              </strong>
+
+            </div>
+
+
+            <div class="schedule-item">
+
+              <span>
+                அறுசுவை விருந்து
+              </span>
+
+              <strong>
+                இரவு 8.00 மணி
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          <!-- 13 NOV -->
+
+          <div class="schedule-card">
+
+            <div class="schedule-header-badge bride-date">
+              13-11-2026 வெள்ளிக்கிழமை
+            </div>
+
+
+            <div class="schedule-item">
+
+              <span>
+                சுபமுகூர்த்தம்
+              </span>
+
+              <strong>
+                காலை 6.00 - 7.30 மணி
+              </strong>
+
+            </div>
+
+
+            <div class="schedule-item">
+
+              <span>
+                மணவிருந்து
+              </span>
+
+              <strong>
+                காலை 7.30 மணி
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          <p class="footer-note">
+
+            உற்றார் உறவினர் அனைவரும் வருகை தந்து
+            மணமக்களை வாழ்த்துமாறு அன்புடன் கேட்டுக்கொள்கிறோம்!
+
+          </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGE 4 — VENUE
+        ================================================= -->
+
+        <section class="page-view">
+
+          <div class="venue-card">
+
+            <div class="venue-title">
+              🏛️ திருமண மண்டபம்
+            </div>
+
+
+            <div class="venue-hall-name">
+              A.D.B. திருமண மஹால் (A/c)
+            </div>
+
+
+            <div class="venue-address">
+
+              ஆரணி - வேலூர் மெயின் ரோடு,
+              <br>
+
+              சேவூர்,
+
+            </div>
+
+
+            <!-- GOOGLE MAPS -->
+
+            <a
+              class="map-btn"
+              href="https://www.google.com/maps/search/?api=1&query=A.D.B.%20திருமண%20மஹால்%20சேவூர்%20ஆரணி%20வேலூர்"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              📍 Google Maps வழியாக செல்ல
+            </a>
+
+          </div>
+
+
+          <!-- THIRUKKURAL -->
+
+          <div class="kural-card">
+
+            <div class="kural-title">
+              திருக்குறள்
+            </div>
+
+
+            <div class="kural-text">
+
+              அன்பும் அறனும் உடைத்தாயின் இல்வாழ்க்கை
+              <br>
+              பண்பும் பயனும் அது.
+
+            </div>
+
+
+            <div class="kural-author">
+              — திருவள்ளுவர் · குறள் 45
+            </div>
+
+          </div>
+
+
+          <p class="footer-note">
+
+            வருகை தந்து மணமக்களை வாழ்த்துமாறு
+            அன்புடன் அழைக்கிறோம்!
+
+          </p>
+
+        </section>
+
+      </main>
+
+
+      <!-- =================================================
+           PAGE NAVIGATION
+      ================================================= -->
+
+      <div class="page-navigation">
+
+        <button
+          class="page-nav-btn"
+          onclick="previousPage()"
+          aria-label="Previous page"
+        >
+          ‹
+        </button>
+
+
+        <div class="page-dots">
+
+          <span
+            class="page-dot active"
+            id="dot0"
+          ></span>
+
+          <span
+            class="page-dot"
+            id="dot1"
+          ></span>
+
+          <span
+            class="page-dot"
+            id="dot2"
+          ></span>
+
+          <span
+            class="page-dot"
+            id="dot3"
+          ></span>
+
+        </div>
+
+
+        <button
+          class="page-nav-btn"
+          onclick="nextPage()"
+          aria-label="Next page"
+        >
+          ›
+        </button>
+
+      </div>
+
+    </div>
+
   </div>
 
+
   <script>
-    function switchTab(tabId) {
-      const tabs = document.querySelectorAll('.nav-tab');
-      const contents = document.querySelectorAll('.tab-content');
 
-      tabs.forEach(tab => tab.classList.remove('active'));
-      contents.forEach(content => content.classList.remove('active'));
+    /* =====================================================
+       PAGE NAVIGATION
+    ===================================================== */
 
-      event.currentTarget.classList.add('active');
-      document.getElementById(tabId).classList.add('active');
+    let currentPage = 0;
+
+    const totalPages = 4;
+
+    const slider =
+      document.getElementById("pageSlider");
+
+    const tabs =
+      document.querySelectorAll(".tab-btn");
+
+
+    function goToPage(index) {
+
+      if (index < 0) {
+        index = 0;
+      }
+
+      if (index >= totalPages) {
+        index = totalPages - 1;
+      }
+
+      currentPage = index;
+
+      slider.style.transform =
+        `translateX(-${index * 25}%)`;
+
+
+      tabs.forEach((tab, i) => {
+
+        tab.classList.toggle(
+          "active",
+          i === index
+        );
+
+      });
+
+
+      for (let i = 0; i < totalPages; i++) {
+
+        const dot =
+          document.getElementById("dot" + i);
+
+        if (dot) {
+
+          dot.classList.toggle(
+            "active",
+            i === index
+          );
+
+        }
+
+      }
+
+
+      /*
+        Flower shower:
+        Page 2 = Manamakkal
+        Page 3 = Event
+      */
+
+      if (index === 1) {
+
+        startFlowerShower(
+          document.getElementById("brideFlowerCanvas")
+        );
+
+      }
+
+      if (index === 2) {
+
+        startFlowerShower(
+          document.getElementById("eventFlowerCanvas")
+        );
+
+      }
+
     }
+
+
+    function nextPage() {
+
+      if (currentPage < totalPages - 1) {
+
+        goToPage(currentPage + 1);
+
+      } else {
+
+        goToPage(0);
+
+      }
+
+    }
+
+
+    function previousPage() {
+
+      if (currentPage > 0) {
+
+        goToPage(currentPage - 1);
+
+      } else {
+
+        goToPage(totalPages - 1);
+
+      }
+
+    }
+
+
+    /* =====================================================
+       DRAWER
+    ===================================================== */
+
+    function toggleDrawer(open) {
+
+      const drawer =
+        document.getElementById("sideDrawer");
+
+      const overlay =
+        document.getElementById("drawerOverlay");
+
+
+      if (open) {
+
+        drawer.classList.add("active");
+        overlay.classList.add("active");
+
+      } else {
+
+        drawer.classList.remove("active");
+        overlay.classList.remove("active");
+
+      }
+
+    }
+
+
+    function navigateFromDrawer(index) {
+
+      goToPage(index);
+
+      toggleDrawer(false);
+
+    }
+
+
+    /* =====================================================
+       SWIPE NAVIGATION
+    ===================================================== */
+
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    const pageWindow =
+      document.querySelector(".pages-window");
+
+
+    pageWindow.addEventListener(
+      "touchstart",
+      function(event) {
+
+        const touch =
+          event.changedTouches[0];
+
+        touchStartX = touch.screenX;
+        touchStartY = touch.screenY;
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    pageWindow.addEventListener(
+      "touchend",
+      function(event) {
+
+        const touch =
+          event.changedTouches[0];
+
+        const deltaX =
+          touch.screenX - touchStartX;
+
+        const deltaY =
+          touch.screenY - touchStartY;
+
+
+        /*
+          Only treat it as a page swipe when
+          horizontal movement is clearly dominant.
+        */
+
+        if (
+          Math.abs(deltaX) > 60 &&
+          Math.abs(deltaX) > Math.abs(deltaY) * 1.2
+        ) {
+
+          if (deltaX < 0) {
+
+            nextPage();
+
+          } else {
+
+            previousPage();
+
+          }
+
+        }
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    /* =====================================================
+       COUNTDOWN
+    ===================================================== */
+
+    /*
+      Wedding:
+      13 November 2026
+      6:00 AM
+      India time
+    */
+
+    const weddingDate =
+      new Date("2026-11-13T06:00:00+05:30");
+
+
+    function updateCountdown() {
+
+      const now =
+        new Date();
+
+      let difference =
+        weddingDate.getTime() -
+        now.getTime();
+
+
+      if (difference < 0) {
+
+        difference = 0;
+
+      }
+
+
+      const days =
+        Math.floor(
+          difference / (1000 * 60 * 60 * 24)
+        );
+
+
+      const hours =
+        Math.floor(
+          (difference /
+            (1000 * 60 * 60)) % 24
+        );
+
+
+      const minutes =
+        Math.floor(
+          (difference /
+            (1000 * 60)) % 60
+        );
+
+
+      const seconds =
+        Math.floor(
+          (difference / 1000) % 60
+        );
+
+
+      document.getElementById("dNum")
+        .textContent =
+        String(days).padStart(2, "0");
+
+
+      document.getElementById("hNum")
+        .textContent =
+        String(hours).padStart(2, "0");
+
+
+      document.getElementById("mNum")
+        .textContent =
+        String(minutes).padStart(2, "0");
+
+
+      document.getElementById("sNum")
+        .textContent =
+        String(seconds).padStart(2, "0");
+
+    }
+
+
+    updateCountdown();
+
+    setInterval(
+      updateCountdown,
+      1000
+    );
+
+
+    /* =====================================================
+       FLOWER SHOWER ENGINE
+    ===================================================== */
+
+    const flowerAnimations =
+      new WeakMap();
+
+
+    function startFlowerShower(canvas) {
+
+      if (!canvas) {
+        return;
+      }
+
+
+      if (flowerAnimations.has(canvas)) {
+        return;
+      }
+
+
+      const ctx =
+        canvas.getContext("2d");
+
+
+      const parent =
+        canvas.parentElement;
+
+
+      let width = 0;
+      let height = 0;
+
+      let flowers = [];
+
+      let animationId;
+
+
+      function resizeCanvas() {
+
+        const rect =
+          parent.getBoundingClientRect();
+
+
+        width =
+          Math.max(1, rect.width);
+
+        height =
+          Math.max(1, rect.height);
+
+
+        const ratio =
+          Math.min(
+            window.devicePixelRatio || 1,
+            2
+          );
+
+
+        canvas.width =
+          width * ratio;
+
+        canvas.height =
+          height * ratio;
+
+
+        canvas.style.width =
+          width + "px";
+
+        canvas.style.height =
+          height + "px";
+
+
+        ctx.setTransform(
+          ratio,
+          0,
+          0,
+          ratio,
+          0,
+          0
+        );
+
+      }
+
+
+      function createFlower(initial) {
+
+        const types = [
+          "rose",
+          "petal",
+          "jasmine",
+          "marigold"
+        ];
+
+
+        return {
+
+          x:
+            Math.random() * width,
+
+          y:
+            initial
+              ? Math.random() * height
+              : -30 - Math.random() * 100,
+
+          size:
+            5 + Math.random() * 9,
+
+          speed:
+            .45 + Math.random() * 1.15,
+
+          sway:
+            .3 + Math.random() * .8,
+
+          angle:
+            Math.random() * Math.PI * 2,
+
+          rotation:
+            (Math.random() - .5) * .06,
+
+          rotationSpeed:
+            (Math.random() - .5) * .025,
+
+          opacity:
+            .45 + Math.random() * .5,
+
+          type:
+            types[
+              Math.floor(
+                Math.random() * types.length
+              )
+            ],
+
+          depth:
+            Math.random()
+
+        };
+
+      }
+
+
+      function initializeFlowers() {
+
+        flowers = [];
+
+        const amount =
+          Math.min(
+            70,
+            Math.max(
+              35,
+              Math.floor(width / 5)
+            )
+          );
+
+
+        for (
+          let i = 0;
+          i < amount;
+          i++
+        ) {
+
+          flowers.push(
+            createFlower(true)
+          );
+
+        }
+
+      }
+
+
+      function drawPetal(
+        flower
+      ) {
+
+        ctx.save();
+
+        ctx.translate(
+          flower.x,
+          flower.y
+        );
+
+        ctx.rotate(
+          flower.angle
+        );
+
+
+        ctx.globalAlpha =
+          flower.opacity;
+
+
+        const s =
+          flower.size;
+
+
+        /*
+          Soft flower/petal shape
+        */
+
+        ctx.beginPath();
+
+        ctx.ellipse(
+          0,
+          0,
+          s * .48,
+          s,
+          0,
+          0,
+          Math.PI * 2
+        );
+
+
+        if (flower.type === "rose") {
+
+          ctx.fillStyle =
+            "#C72B35";
+
+        } else if (
+          flower.type === "jasmine"
+        ) {
+
+          ctx.fillStyle =
+            "#FFF8E7";
+
+        } else if (
+          flower.type === "marigold"
+        ) {
+
+          ctx.fillStyle =
+            "#E67E22";
+
+        } else {
+
+          ctx.fillStyle =
+            "#F3A0A7";
+
+        }
+
+
+        ctx.fill();
+
+
+        /*
+          Soft center
+        */
+
+        if (
+          flower.type === "rose" ||
+          flower.type === "marigold"
+        ) {
+
+          ctx.beginPath();
+
+          ctx.arc(
+            0,
+            0,
+            s * .22,
+            0,
+            Math.PI * 2
+          );
+
+
+          ctx.fillStyle =
+            "#D4AF37";
+
+          ctx.globalAlpha =
+            flower.opacity * .85;
+
+          ctx.fill();
+
+        }
+
+
+        ctx.restore();
+
+      }
+
+
+      function animate() {
+
+        ctx.clearRect(
+          0,
+          0,
+          width,
+          height
+        );
+
+
+        for (
+          let i = 0;
+          i < flowers.length;
+          i++
+        ) {
+
+          const flower =
+            flowers[i];
+
+
+          flower.y +=
+            flower.speed *
+            (0.8 + flower.depth);
+
+
+          flower.x +=
+            Math.sin(
+              flower.y * .018 +
+              flower.angle
+            ) *
+            flower.sway *
+            .25;
+
+
+          flower.angle +=
+            flower.rotationSpeed;
+
+
+          if (
+            flower.y >
+            height + 30
+          ) {
+
+            flowers[i] =
+              createFlower(false);
+
+          }
+
+
+          drawPetal(
+            flower
+          );
+
+        }
+
+
+        animationId =
+          requestAnimationFrame(
+            animate
+          );
+
+      }
+
+
+      resizeCanvas();
+
+      initializeFlowers();
+
+      animate();
+
+
+      window.addEventListener(
+        "resize",
+        function() {
+
+          resizeCanvas();
+
+          initializeFlowers();
+
+        }
+      );
+
+
+      flowerAnimations.set(
+        canvas,
+        animationId
+      );
+
+    }
+
+
+    /* =====================================================
+       MUSIC
+    ===================================================== */
+
+    const audio =
+      document.getElementById(
+        "weddingAudio"
+      );
+
+
+    const audioBtn =
+      document.getElementById(
+        "audioBtn"
+      );
+
+
+    const audioIcon =
+      document.getElementById(
+        "audioIcon"
+      );
+
+
+    async function toggleAudio() {
+
+      try {
+
+        if (
+          !audio.paused
+        ) {
+
+          audio.pause();
+
+          audioBtn.classList.remove(
+            "playing"
+          );
+
+          audioIcon.textContent =
+            "🎵";
+
+          return;
+
+        }
+
+
+        await audio.play();
+
+
+        audioBtn.classList.add(
+          "playing"
+        );
+
+        audioIcon.textContent =
+          "🔊";
+
+      } catch (error) {
+
+        /*
+          If wedding-music.mp3 is missing,
+          show a useful message instead of
+          silently failing.
+        */
+
+        alert(
+          "Music file கிடைக்கவில்லை.\n\n" +
+          "wedding-music.mp3 என்ற பெயரில் " +
+          "music file-ஐ index.html இருக்கும் " +
+          "same folder-ல் வைக்கவும்."
+        );
+
+      }
+
+    }
+
+
+    /* =====================================================
+       INITIAL PAGE
+    ===================================================== */
+
+    goToPage(0);
+
   </script>
+
 </body>
 </html>
