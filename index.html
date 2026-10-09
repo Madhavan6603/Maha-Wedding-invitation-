@@ -1,0 +1,3737 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+  />
+
+  <title>D&M திருமண அழைப்பிதழ் | R. தினேஷ் & P. மகாலட்சுமி</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Arima:wght@600;700;800&family=Noto+Serif+Tamil:wght@400;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    :root {
+      --auspicious-red: #A81B23;
+      --deep-maroon: #680C11;
+      --dark-maroon: #3D070A;
+      --marigold-orange: #E67E22;
+      --metallic-gold: #D4AF37;
+      --gold-light: #F9E79F;
+      --gold-pale: #FFF4C7;
+      --soft-beige: #FDFBF7;
+      --cream: #FFF9EF;
+      --card-bg: #FFFFFF;
+      --text-dark: #2C1810;
+      --text-muted: #6B4C3B;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+      background: #0b0102;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 50% 20%, #5d0d13 0%, #220407 45%, #0b0102 100%);
+      color: var(--text-dark);
+      font-family: "Noto Serif Tamil", serif;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    /* =====================================================
+       APP
+    ===================================================== */
+
+    .app-viewport {
+      width: 100%;
+      max-width: 430px;
+      height: 100vh;
+      height: 100dvh;
+      height: var(--app-height, 100dvh);
+      position: relative;
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(212,175,55,.12),
+          transparent 35%
+        ),
+        var(--soft-beige);
+
+      display: flex;
+      flex-direction: column;
+
+      box-shadow:
+        0 0 50px rgba(0,0,0,.85),
+        inset 0 0 0 1px rgba(212,175,55,.35);
+    }
+
+    /* =====================================================
+       HEADER
+    ===================================================== */
+
+    .nav-header {
+      min-height: calc(64px + env(safe-area-inset-top, 0px));
+
+      padding: 10px 14px;
+      padding-top: calc(10px + env(safe-area-inset-top, 0px));
+      padding-left: calc(14px + env(safe-area-inset-left, 0px));
+      padding-right: calc(14px + env(safe-area-inset-right, 0px));
+
+      flex-shrink: 0;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--auspicious-red),
+          var(--deep-maroon)
+        );
+
+      color: white;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      border-bottom: 2px solid var(--metallic-gold);
+
+      z-index: 100;
+
+      box-shadow:
+        0 4px 18px rgba(0,0,0,.28);
+    }
+
+    .hamburger-btn,
+    .audio-toggle-btn {
+      border: 1px solid var(--metallic-gold);
+
+      color: white;
+
+      cursor: pointer;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      transition: .25s ease;
+    }
+
+    .hamburger-btn {
+      width: 40px;
+      height: 40px;
+
+      border-radius: 12px;
+
+      background: rgba(255,255,255,.12);
+
+      font-size: 1.25rem;
+    }
+
+    .audio-toggle-btn {
+      width: 40px;
+      height: 40px;
+
+      border-radius: 50%;
+
+      background: rgba(255,255,255,.12);
+
+      font-size: 1.05rem;
+    }
+
+    .audio-toggle-btn.playing {
+      background: var(--metallic-gold);
+      color: var(--auspicious-red);
+
+      box-shadow:
+        0 0 8px rgba(249,231,159,.8),
+        0 0 20px rgba(212,175,55,.45);
+
+      animation: musicPulse 1.6s infinite;
+    }
+
+    @keyframes musicPulse {
+      50% {
+        transform: scale(1.07);
+      }
+    }
+
+    .header-title {
+      font-family: "Arima", serif;
+      font-weight: 800;
+
+      font-size: 1.05rem;
+
+      color: var(--gold-light);
+
+      letter-spacing: .4px;
+
+      text-align: center;
+    }
+
+    /* =====================================================
+       TAB BAR
+    ===================================================== */
+
+    .tab-bar {
+      display: flex;
+
+      background:
+        linear-gradient(
+          180deg,
+          #f4eee2,
+          #e9dfcf
+        );
+
+      padding: 6px;
+
+      gap: 4px;
+
+      border-bottom: 1px solid var(--metallic-gold);
+
+      z-index: 80;
+    }
+
+    .tab-btn {
+      flex: 1;
+
+      border: none;
+
+      background: transparent;
+
+      padding: 9px 2px;
+
+      border-radius: 11px;
+
+      font-family: "Noto Serif Tamil", serif;
+
+      font-size: .78rem;
+
+      font-weight: 800;
+
+      color: var(--text-muted);
+
+      cursor: pointer;
+
+      transition: .3s ease;
+
+      white-space: nowrap;
+    }
+
+    .tab-btn.active {
+      background:
+        linear-gradient(
+          135deg,
+          var(--auspicious-red),
+          var(--deep-maroon)
+        );
+
+      color: var(--gold-light);
+
+      box-shadow:
+        0 4px 10px rgba(104,12,17,.3);
+    }
+
+    /* =====================================================
+       DRAWER
+    ===================================================== */
+
+    .drawer-overlay {
+      position: absolute;
+
+      inset: 0;
+
+      background: rgba(0,0,0,.68);
+
+      z-index: 200;
+
+      opacity: 0;
+
+      pointer-events: none;
+
+      transition: opacity .3s ease;
+    }
+
+    .drawer-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .side-drawer {
+      position: absolute;
+
+      top: 0;
+      left: -290px;
+
+      width: 280px;
+      height: 100%;
+
+      background: var(--soft-beige);
+
+      z-index: 210;
+
+      border-right: 3px solid var(--metallic-gold);
+
+      box-shadow:
+        5px 0 25px rgba(0,0,0,.45);
+
+      transition:
+        transform .35s cubic-bezier(.25,1,.5,1);
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    .side-drawer.active {
+      transform: translateX(290px);
+    }
+
+    .drawer-header {
+      background:
+        linear-gradient(
+          135deg,
+          var(--auspicious-red),
+          var(--deep-maroon)
+        );
+
+      color: var(--gold-light);
+
+      padding: 28px 18px;
+      padding-top: calc(28px + env(safe-area-inset-top, 0px));
+
+      border-bottom: 2px solid var(--metallic-gold);
+    }
+
+    .drawer-menu {
+      list-style: none;
+
+      padding: 18px 12px;
+
+      display: flex;
+      flex-direction: column;
+
+      gap: 10px;
+    }
+
+    .drawer-item {
+      padding: 14px 16px;
+
+      border-radius: 14px;
+
+      background: white;
+
+      border: 1px solid rgba(212,175,55,.45);
+
+      color: var(--text-dark);
+
+      font-weight: 800;
+
+      font-size: .9rem;
+
+      cursor: pointer;
+
+      display: flex;
+      align-items: center;
+
+      gap: 12px;
+
+      box-shadow:
+        0 4px 12px rgba(0,0,0,.05);
+
+      transition: .2s ease;
+    }
+
+    .drawer-item:active {
+      transform: scale(.97);
+    }
+
+    /* =====================================================
+       PAGES
+    ===================================================== */
+
+    .pages-window {
+      flex: 1;
+
+      min-height: 0;
+
+      overflow: hidden;
+
+      position: relative;
+
+      perspective: 1800px;
+      perspective-origin: 50% 50%;
+    }
+
+    /* All pages are stacked like sheets of paper */
+
+    .pages-slider {
+      width: 100%;
+      height: 100%;
+
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: minmax(0, 1fr);
+
+      transform-style: preserve-3d;
+    }
+
+    .page-view {
+      grid-area: 1 / 1;
+
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      padding: 18px 14px calc(100px + env(safe-area-inset-bottom, 0px));
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      text-align: center;
+
+      position: relative;
+
+      -webkit-overflow-scrolling: touch;
+
+      /* paper */
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(212,175,55,.12),
+          transparent 35%
+        ),
+        var(--soft-beige);
+
+      transform-origin: left center;
+      transform: rotateY(0deg);
+
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+
+      will-change: transform;
+
+      transition:
+        transform .9s cubic-bezier(.645,.045,.355,1),
+        box-shadow .9s ease,
+        filter .9s ease,
+        opacity 0s linear .9s,
+        visibility 0s linear .9s;
+
+      z-index: 1;
+    }
+
+    /* page that is currently open */
+    .page-view.is-active {
+      z-index: 2;
+      opacity: 1;
+      visibility: visible;
+      transition-delay: 0s, 0s, 0s, 0s, 0s;
+    }
+
+    /* pages already turned (left side of the book) */
+    .page-view.is-turned {
+      transform: rotateY(-115deg);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* pages waiting underneath (right side of the book) */
+    .page-view.is-waiting {
+      transform: rotateY(0deg);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      filter: brightness(.9);
+    }
+
+    /* page that is moving right now */
+    .page-view.turning {
+      z-index: 5;
+      opacity: 1;
+      visibility: visible;
+      overflow: hidden;
+      box-shadow:
+        -18px 0 40px rgba(0,0,0,.35),
+        inset -22px 0 30px rgba(0,0,0,.10);
+      transition-delay: 0s, 0s, 0s, 0s, 0s;
+    }
+
+    /* page that is being revealed underneath */
+    .page-view.revealing {
+      z-index: 3;
+      opacity: 1;
+      visibility: visible;
+      filter: brightness(1);
+      transition-delay: 0s, 0s, 0s, 0s, 0s;
+    }
+
+    .page-view::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    .page-view::-webkit-scrollbar-thumb {
+      background: var(--metallic-gold);
+      border-radius: 10px;
+    }
+
+    /* =====================================================
+       PREMIUM DECORATION
+    ===================================================== */
+
+    .page-view::before {
+      content: "";
+
+      position: absolute;
+
+      width: 260px;
+      height: 260px;
+
+      border-radius: 50%;
+
+      border: 1px solid rgba(212,175,55,.16);
+
+      top: 20px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      pointer-events: none;
+    }
+
+    .page-view::after {
+      content: "";
+
+      position: absolute;
+
+      width: 180px;
+      height: 180px;
+
+      border-radius: 50%;
+
+      border: 1px dashed rgba(168,27,35,.12);
+
+      top: 60px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      pointer-events: none;
+    }
+
+    /* =====================================================
+       SHARED ORNAMENTS + ENTRANCE MOTION
+    ===================================================== */
+
+    /* temple-border (zari) strip */
+    .zari {
+      height: 12px;
+      flex-shrink: 0;
+      background:
+        linear-gradient(135deg, var(--metallic-gold) 25%, transparent 25%) -6px 0 / 12px 12px,
+        linear-gradient(225deg, var(--metallic-gold) 25%, transparent 25%) -6px 0 / 12px 12px,
+        linear-gradient(315deg, var(--metallic-gold) 25%, transparent 25%) 0 0 / 12px 12px,
+        linear-gradient(45deg,  var(--metallic-gold) 25%, transparent 25%) 0 0 / 12px 12px,
+        var(--deep-maroon);
+    }
+
+    @keyframes spin   { to { transform: rotate(360deg); } }
+    @keyframes rise   { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+    @keyframes inL    { from { opacity: 0; transform: translateX(-38px) rotate(-2deg); } to { opacity: 1; transform: none; } }
+    @keyframes inR    { from { opacity: 0; transform: translateX(38px) rotate(2deg); } to { opacity: 1; transform: none; } }
+    @keyframes pop    { from { opacity: 0; transform: scale(.5); } to { opacity: 1; transform: none; } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes shine  { from { background-position: 150% 0, 0 0; } to { background-position: -50% 0, 0 0; } }
+
+    /*
+      Cards play their entrance only on the page that is open,
+      and only after the cover has been opened.
+    */
+    body.opened .page-view.is-active .rise {
+      animation: rise .8s cubic-bezier(.2,.8,.2,1) both;
+      animation-delay: calc(.35s + var(--i, 0) * .11s);
+    }
+    body.opened .page-view.is-active .inL {
+      animation: inL .85s cubic-bezier(.2,.8,.2,1) both;
+      animation-delay: calc(.35s + var(--i, 0) * .11s);
+    }
+    body.opened .page-view.is-active .inR {
+      animation: inR .85s cubic-bezier(.2,.8,.2,1) both;
+      animation-delay: calc(.35s + var(--i, 0) * .11s);
+    }
+    body.opened .page-view.is-active .pop {
+      animation: pop .6s cubic-bezier(.3,1.5,.5,1) both;
+      animation-delay: calc(.35s + var(--i, 0) * .11s);
+    }
+    body.opened .page-view.is-active .fade {
+      animation: fadeIn .9s ease both;
+      animation-delay: .3s;
+    }
+
+    /* cards must never be squashed by the page's flex column */
+    .page-view > * {
+      flex-shrink: 0;
+    }
+
+    /* =====================================================
+       HEADINGS
+    ===================================================== */
+
+    .page-center-heading {
+      font-family: "Arima", serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--auspicious-red);
+      width: 100%;
+      margin-bottom: 22px;
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .page-center-heading::before,
+    .page-center-heading::after {
+      content: "";
+      flex: 1;
+      max-width: 62px;
+      height: 7px;
+      background:
+        linear-gradient(var(--metallic-gold), var(--metallic-gold)) center / 100% 1.5px no-repeat;
+      -webkit-mask: radial-gradient(circle at 100% 50%, #000 0 3px, transparent 3.5px), linear-gradient(#000, #000);
+      -webkit-mask-composite: source-over;
+    }
+
+    .page-center-heading::before {
+      background:
+        linear-gradient(90deg, transparent, var(--metallic-gold)) center / 100% 1.5px no-repeat;
+      -webkit-mask: none;
+    }
+
+    .page-center-heading::after {
+      background:
+        linear-gradient(270deg, transparent, var(--metallic-gold)) center / 100% 1.5px no-repeat;
+      -webkit-mask: none;
+    }
+
+    /* =====================================================
+       HOME : TEMPLE ARCH CARD
+    ===================================================== */
+
+    .murugan-halo {
+      position: relative;
+      width: 104px;
+      height: 104px;
+      margin: 0 auto 18px;
+      z-index: 10;
+    }
+
+    /* slow sunburst behind the deity */
+    .murugan-halo::before {
+      content: "";
+      position: absolute;
+      inset: -22px;
+      border-radius: 50%;
+      background:
+        repeating-conic-gradient(from 0deg, rgba(212,175,55,.75) 0 3deg, transparent 3deg 12deg);
+      -webkit-mask: radial-gradient(circle closest-side, transparent 68%, #000 73%, #000 82%, transparent 100%);
+              mask: radial-gradient(circle closest-side, transparent 68%, #000 73%, #000 82%, transparent 100%);
+      animation: spin 50s linear infinite;
+    }
+
+    .murugan-header-frame {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 3px solid var(--metallic-gold);
+      padding: 4px;
+      background: linear-gradient(135deg, #fff, var(--gold-pale));
+      box-shadow:
+        0 10px 24px rgba(168,27,35,.3),
+        0 0 0 5px #fff,
+        0 0 0 6.5px rgba(212,175,55,.85);
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .murugan-header-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .main-card {
+      width: 100%;
+      margin-top: 4px;
+      padding: 40px 18px 0;
+      position: relative;
+      z-index: 10;
+      overflow: hidden;
+      border: 2px solid var(--metallic-gold);
+      border-radius: 190px 190px 26px 26px;
+      background:
+        radial-gradient(120% 38% at 50% 0%, rgba(212,175,55,.22), transparent 70%),
+        linear-gradient(180deg, #fffdf8, #fff6e6);
+      box-shadow:
+        0 20px 40px rgba(74,20,10,.18),
+        0 0 0 5px rgba(255,255,255,.75),
+        0 0 0 6.5px rgba(212,175,55,.6);
+    }
+
+    /* inner hairline frame that follows the arch */
+    .main-card::before {
+      content: "";
+      position: absolute;
+      inset: 9px 9px 22px;
+      border: 1px solid rgba(212,175,55,.65);
+      border-radius: 182px 182px 16px 16px;
+      pointer-events: none;
+    }
+
+    .main-card .zari {
+      margin: 0 -18px;
+    }
+
+    .invitation-title {
+      font-family: "Arima", serif;
+      font-size: 1.78rem;
+      font-weight: 800;
+      color: var(--auspicious-red);
+      margin-bottom: 6px;
+    }
+
+    .invitation-sub {
+      font-size: .86rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      font-weight: 600;
+      line-height: 1.7;
+    }
+
+    .names-summary {
+      font-family: "Arima", serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .names-summary .name-line {
+      font-size: 1.62rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      line-height: 1.5;
+    }
+
+    .names-summary .join-line {
+      font-family: "Noto Serif Tamil", serif;
+      font-size: .82rem;
+      color: var(--marigold-orange);
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .names-summary .join-line::before,
+    .names-summary .join-line::after {
+      content: "";
+      width: 28px;
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent, var(--metallic-gold));
+    }
+
+    .names-summary .join-line::after {
+      transform: scaleX(-1);
+    }
+
+    /* =====================================================
+       COUNTDOWN : FLIP-CLOCK TILES
+    ===================================================== */
+
+    .timer-container {
+      width: 100%;
+      margin-top: 22px;
+      margin-bottom: 26px;
+    }
+
+    .timer-title {
+      display: inline-block;
+      font-size: .76rem;
+      font-weight: 800;
+      color: var(--deep-maroon);
+      padding: 4px 15px;
+      border-radius: 20px;
+      background: rgba(212,175,55,.16);
+      border: 1px solid rgba(212,175,55,.55);
+    }
+
+    .timer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-top: 13px;
+    }
+
+    .timer-cell {
+      border-radius: 12px;
+      border: 1.5px solid var(--metallic-gold);
+      overflow: hidden;
+      background: linear-gradient(170deg, #7c1119, var(--dark-maroon));
+      box-shadow: 0 9px 18px rgba(104,12,17,.32);
+      perspective: 300px;
+    }
+
+    .timer-num {
+      position: relative;
+      padding: 10px 0 8px;
+      font-family: "Arima", serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--gold-light);
+      background: linear-gradient(180deg, rgba(255,255,255,.11) 50%, rgba(0,0,0,.2) 50%);
+      transform-origin: 50% 0;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .timer-num::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 1px;
+      background: rgba(0,0,0,.5);
+      box-shadow: 0 1px 0 rgba(255,255,255,.12);
+    }
+
+    .timer-num.tick {
+      animation: tick .45s ease-out;
+    }
+
+    @keyframes tick {
+      from { transform: rotateX(-80deg); opacity: .35; }
+      to   { transform: none; opacity: 1; }
+    }
+
+    .timer-lbl {
+      font-size: .64rem;
+      color: var(--gold-pale);
+      font-weight: 700;
+      padding: 4px 0 6px;
+      background: rgba(0,0,0,.3);
+    }
+
+    /* =====================================================
+       FOOTER NOTE
+    ===================================================== */
+
+    .footer-note {
+      font-size: .86rem;
+      color: var(--text-muted);
+      margin: 24px 0 20px;
+      line-height: 1.85;
+      font-weight: 700;
+      width: 100%;
+      padding: 0 10px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .footer-note::before {
+      content: "❖ ❖ ❖";
+      display: block;
+      color: var(--metallic-gold);
+      font-size: .7rem;
+      letter-spacing: 6px;
+      margin-bottom: 9px;
+    }
+
+    /* =====================================================
+       FLOWER SHOWER
+    ===================================================== */
+
+    .flower-page {
+      position: relative;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    .flower-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 6;
+    }
+
+    .flower-page > *:not(.flower-canvas) {
+      position: relative;
+      z-index: 10;
+    }
+
+    /* =====================================================
+       BRIDE & GROOM : LEAF CARDS + RING KNOT
+    ===================================================== */
+
+    .person-card {
+      --accent: var(--auspicious-red);
+      --accent-soft: rgba(168,27,35,.11);
+
+      width: 100%;
+      padding: 22px 18px 24px;
+      position: relative;
+      z-index: 10;
+      text-align: center;
+
+      border: 1.5px solid var(--metallic-gold);
+      border-radius: 36px 6px 36px 6px;
+
+      background:
+        radial-gradient(120% 60% at 50% 0%, var(--accent-soft), transparent 72%),
+        linear-gradient(160deg, #fffdf8, #fff6e6);
+
+      box-shadow: 0 14px 30px rgba(74,20,10,.12);
+    }
+
+    .person-card.bride {
+      --accent: var(--marigold-orange);
+      --accent-soft: rgba(230,126,34,.15);
+      border-radius: 6px 36px 6px 36px;
+    }
+
+    .person-card::before {
+      content: "";
+      position: absolute;
+      inset: 6px;
+      border: 1px dashed rgba(212,175,55,.7);
+      border-radius: 30px 2px 30px 2px;
+      pointer-events: none;
+    }
+
+    .person-card.bride::before {
+      border-radius: 2px 30px 2px 30px;
+    }
+
+    .person-medal {
+      width: 66px;
+      height: 66px;
+      margin: 0 auto 12px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-light);
+      background: linear-gradient(145deg, var(--accent), var(--dark-maroon));
+      border: 2px solid var(--metallic-gold);
+      box-shadow:
+        0 8px 18px rgba(104,12,17,.3),
+        0 0 0 5px rgba(212,175,55,.16);
+    }
+
+    .person-medal svg {
+      width: 38px;
+      height: 38px;
+    }
+
+    .person-tag {
+      font-size: .76rem;
+      font-weight: 800;
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent), var(--deep-maroon));
+      padding: 4px 16px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 8px;
+      box-shadow: 0 3px 8px rgba(168,27,35,.25);
+    }
+
+    .person-tag.bride-tag {
+      background: linear-gradient(135deg, var(--marigold-orange), var(--auspicious-red));
+    }
+
+    .person-name {
+      font-family: "Arima", serif;
+      font-size: 1.62rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      line-height: 1.4;
+    }
+
+    .family-names {
+      font-size: .93rem;
+      color: var(--text-dark);
+      line-height: 1.9;
+      margin-top: 14px;
+      padding-top: 14px;
+      position: relative;
+      font-weight: 700;
+    }
+
+    .family-names::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 14%;
+      right: 14%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--metallic-gold), transparent);
+    }
+
+    .family-names::after {
+      content: "◆";
+      position: absolute;
+      top: -7px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: .6rem;
+      line-height: 14px;
+      color: var(--metallic-gold);
+      background: #fff9ee;
+      padding: 0 7px;
+    }
+
+    /* two rings joined, between the two cards */
+    .knot {
+      width: 100%;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    .knot::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      transform: translateX(-50%);
+      background: linear-gradient(180deg, var(--metallic-gold), rgba(212,175,55,.25) 45%, rgba(212,175,55,.25) 55%, var(--metallic-gold));
+    }
+
+    .knot-rings {
+      position: relative;
+      width: 70px;
+      height: 38px;
+      border-radius: 20px;
+      background: var(--soft-beige);
+      border: 1px solid rgba(212,175,55,.7);
+      box-shadow: 0 4px 12px rgba(0,0,0,.1);
+    }
+
+    .knot-rings i {
+      position: absolute;
+      top: 5px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 3px solid var(--metallic-gold);
+      box-shadow: 0 2px 5px rgba(0,0,0,.2), inset 0 0 0 1px rgba(255,255,255,.5);
+    }
+
+    .knot-rings i:first-child  { left: 12px; }
+    .knot-rings i:last-child   { right: 12px; border-color: var(--auspicious-red); }
+
+    /* =====================================================
+       SONG : GOLD-ROD SCROLL
+    ===================================================== */
+
+    .song-card {
+      width: 100%;
+      margin-top: 30px;
+      padding: 34px 20px 30px;
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      border-radius: 3px;
+
+      background:
+        linear-gradient(90deg, rgba(150,110,20,.16), transparent 9%, transparent 91%, rgba(150,110,20,.16)),
+        linear-gradient(180deg, #fffaf0, #fdf1d3);
+
+      box-shadow: 0 16px 28px rgba(74,20,10,.15);
+    }
+
+    .song-card::before,
+    .song-card::after {
+      content: "";
+      position: absolute;
+      left: -9px;
+      right: -9px;
+      height: 16px;
+      border-radius: 10px;
+      background: linear-gradient(180deg, #fbeaa3, #d4af37 45%, #8f6b12 100%);
+      box-shadow: 0 5px 10px rgba(0,0,0,.25);
+    }
+
+    .song-card::before { top: -8px; }
+    .song-card::after  { bottom: -8px; }
+
+    .song-title {
+      font-size: .96rem;
+      font-weight: 800;
+      color: var(--auspicious-red);
+      margin-bottom: 12px;
+    }
+
+    .song-text .verse {
+      display: block;
+      font-size: .88rem;
+      color: var(--text-dark);
+      line-height: 1.9;
+      font-weight: 600;
+    }
+
+    body.opened .page-view.is-active .verse {
+      animation: rise .7s cubic-bezier(.2,.8,.2,1) both;
+      animation-delay: calc(1s + var(--v, 0) * .26s);
+    }
+
+    /* =====================================================
+       SCHEDULE : PERFORATED TICKET + TIMELINE
+    ===================================================== */
+
+    .schedule-card {
+      --head: 48px;
+
+      width: 100%;
+      margin-bottom: 26px;
+      position: relative;
+      z-index: 10;
+      text-align: left;
+
+      border: 1.5px solid var(--metallic-gold);
+      border-radius: 20px;
+      background: linear-gradient(180deg, #fffdf8, #fff7e8);
+      box-shadow: 0 14px 28px rgba(74,20,10,.11);
+    }
+
+    /* tear-off line */
+    .schedule-card::before {
+      content: "";
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      top: var(--head);
+      border-top: 2px dashed rgba(212,175,55,.75);
+    }
+
+    .schedule-card.main-day {
+      border-color: #c79a1d;
+      box-shadow:
+        0 18px 36px rgba(168,27,35,.2),
+        0 0 0 4px rgba(212,175,55,.2);
+    }
+
+    .schedule-header-badge {
+      position: relative;
+      height: var(--head);
+      margin: 0;
+      padding: 0 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 18px 18px 0 0;
+      background: linear-gradient(135deg, var(--auspicious-red), var(--deep-maroon));
+      color: var(--gold-light);
+      font-weight: 800;
+      font-size: .98rem;
+    }
+
+    .schedule-header-badge.bride-date {
+      background:
+        linear-gradient(110deg, transparent 40%, rgba(255,255,255,.45) 50%, transparent 60%) 150% 0 / 250% 100% no-repeat,
+        linear-gradient(135deg, var(--marigold-orange), var(--auspicious-red));
+    }
+
+    body.opened .page-view.is-active .schedule-header-badge.bride-date {
+      animation: shine 1.6s ease 1.3s 1 both;
+    }
+
+    /* half-moon notches either side of the tear-off line */
+    .schedule-header-badge::before,
+    .schedule-header-badge::after {
+      content: "";
+      position: absolute;
+      bottom: -12px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--soft-beige);
+      border: 1.5px solid var(--metallic-gold);
+      z-index: 3;
+    }
+
+    .schedule-header-badge::before {
+      left: -13.5px;
+      clip-path: inset(0 0 0 50%);
+    }
+
+    .schedule-header-badge::after {
+      right: -13.5px;
+      clip-path: inset(0 50% 0 0);
+    }
+
+    .schedule-list {
+      padding: 8px 0 8px;
+    }
+
+    .schedule-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 14px 14px 14px 62px;
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .schedule-item::before {
+      content: attr(data-icon);
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .95rem;
+      background: #fff;
+      border: 1.5px solid var(--metallic-gold);
+      box-shadow: 0 0 0 4px rgba(212,175,55,.14);
+      z-index: 2;
+    }
+
+    .schedule-item::after {
+      content: "";
+      position: absolute;
+      left: 30px;
+      width: 2px;
+      top: 0;
+      bottom: 0;
+      background: repeating-linear-gradient(180deg, rgba(212,175,55,.85) 0 5px, transparent 5px 9px);
+      z-index: 1;
+    }
+
+    .schedule-item.is-first::after { top: 50%; }
+    .schedule-item.is-last::after  { bottom: 50%; }
+    .schedule-item.is-first.is-last::after { display: none; }
+
+    .schedule-item strong {
+      font-size: .76rem;
+      color: var(--deep-maroon);
+      text-align: right;
+      white-space: nowrap;
+      background: rgba(230,126,34,.13);
+      border: 1px solid rgba(230,126,34,.38);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    /* =====================================================
+       VENUE : MAP PLATE CARD
+    ===================================================== */
+
+    .venue-card {
+      width: 100%;
+      position: relative;
+      z-index: 10;
+      overflow: hidden;
+      text-align: center;
+      border: 2px solid var(--metallic-gold);
+      border-radius: 26px;
+      background: linear-gradient(180deg, #fffdf8, #fff6e6);
+      box-shadow:
+        0 20px 40px rgba(74,20,10,.15),
+        0 0 0 5px rgba(255,255,255,.75),
+        0 0 0 6.5px rgba(212,175,55,.55);
+    }
+
+    .venue-map {
+      position: relative;
+      height: 168px;
+      border-bottom: 2px solid var(--metallic-gold);
+    }
+
+    .venue-map svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .venue-map::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 50% 46%, transparent 40%, rgba(104,12,17,.16) 100%);
+    }
+
+    .ripple {
+      fill: none;
+      stroke: var(--auspicious-red);
+      stroke-width: 2;
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: ripple 2.6s ease-out infinite;
+    }
+
+    .ripple.r2 { animation-delay: 1.3s; }
+
+    @keyframes ripple {
+      from { transform: scale(.35); opacity: .75; }
+      to   { transform: scale(2.6); opacity: 0; }
+    }
+
+    @keyframes drop {
+      0%   { transform: translateY(-46px); opacity: 0; }
+      60%  { transform: translateY(4px); opacity: 1; }
+      100% { transform: none; opacity: 1; }
+    }
+
+    body.opened .page-view.is-active .pin {
+      animation: drop .7s cubic-bezier(.3,1.2,.5,1) .8s both;
+    }
+
+    .venue-body {
+      padding: 22px 18px 22px;
+    }
+
+    .venue-title {
+      font-family: "Arima", serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--auspicious-red);
+      margin-bottom: 8px;
+    }
+
+    .venue-hall-name {
+      font-size: 1.28rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      line-height: 1.5;
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .venue-hall-name::after {
+      content: "";
+      position: absolute;
+      left: 22%;
+      right: 22%;
+      bottom: 0;
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent, var(--metallic-gold), transparent);
+    }
+
+    .venue-address {
+      font-size: .92rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .map-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--auspicious-red), var(--deep-maroon));
+      color: var(--gold-light);
+      font-weight: 800;
+      font-size: .95rem;
+      padding: 14px 16px;
+      border-radius: 999px;
+      border: 1.5px solid var(--metallic-gold);
+      text-decoration: none;
+      box-shadow: 0 8px 18px rgba(168,27,35,.35), inset 0 1px 0 rgba(255,255,255,.2);
+      transition: transform .2s ease;
+    }
+
+    .map-btn::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 40%;
+      left: -60%;
+      background: linear-gradient(100deg, transparent, rgba(255,255,255,.35), transparent);
+      transform: skewX(-18deg);
+      transition: left .7s ease;
+    }
+
+    .map-btn:hover::after,
+    .map-btn:focus-visible::after {
+      left: 120%;
+    }
+
+    .map-btn:active {
+      transform: scale(.98);
+    }
+
+    /* =====================================================
+       KURAL : PALM-LEAF MANUSCRIPT
+    ===================================================== */
+
+    .kural-card {
+      width: 100%;
+      margin-top: 26px;
+      padding: 26px 30px 22px;
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      border-radius: 16px;
+      border: 1px solid rgba(120,98,30,.5);
+
+      background:
+        repeating-linear-gradient(180deg, transparent 0 27px, rgba(110,90,30,.11) 27px 28px),
+        linear-gradient(90deg, #e3d79e, #f1e8bb 12%, #f7f0cf 50%, #f1e8bb 88%, #e3d79e);
+
+      box-shadow:
+        0 12px 24px rgba(74,50,10,.18),
+        inset 0 0 20px rgba(120,98,30,.18);
+    }
+
+    /* string holes */
+    .kural-card::before,
+    .kural-card::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 12px;
+      height: 12px;
+      margin-top: -6px;
+      border-radius: 50%;
+      background: var(--soft-beige);
+      box-shadow: inset 0 2px 3px rgba(0,0,0,.5);
+    }
+
+    .kural-card::before { left: 14px; }
+    .kural-card::after  { right: 14px; }
+
+    .kural-title {
+      font-size: .93rem;
+      font-weight: 800;
+      color: var(--auspicious-red);
+      margin-bottom: 8px;
+    }
+
+    .kural-title::before {
+      content: "❝";
+      display: block;
+      font-size: 1.7rem;
+      line-height: 1;
+      color: var(--metallic-gold);
+      margin-bottom: 2px;
+    }
+
+    .kural-text {
+      font-size: .86rem;
+      color: #46300f;
+      line-height: 2;
+      font-weight: 700;
+    }
+
+    .kural-author {
+      margin-top: 10px;
+      font-size: .76rem;
+      color: #6b5420;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .kural-author::before,
+    .kural-author::after {
+      content: "";
+      width: 18px;
+      height: 1px;
+      background: rgba(107,84,32,.6);
+    }
+
+    /* =====================================================
+       BOOK FEEL : SPINE, PAGE EDGE, TURN SHADE, HINT
+    ===================================================== */
+
+    .pages-window::before,
+    .pages-window::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      z-index: 60;
+      pointer-events: none;
+    }
+
+    .pages-window::before {
+      left: 0;
+      width: 12px;
+      background:
+        repeating-linear-gradient(180deg, rgba(212,175,55,.9) 0 6px, transparent 6px 14px) 3px 0 / 2px 100% no-repeat,
+        linear-gradient(90deg, rgba(60,20,0,.3), rgba(60,20,0,.06) 55%, transparent);
+    }
+
+    .pages-window::after {
+      right: 0;
+      width: 5px;
+      background: repeating-linear-gradient(90deg, rgba(212,175,55,.55) 0 1px, rgba(255,255,255,.75) 1px 2px);
+      box-shadow: -3px 0 8px rgba(0,0,0,.08);
+    }
+
+    .turn-shade {
+      position: absolute;
+      inset: 0;
+      z-index: 65;
+      pointer-events: none;
+      opacity: 0;
+      background:
+        linear-gradient(100deg, transparent 38%, rgba(60,20,0,.34) 47%, rgba(255,244,210,.55) 52%, transparent 62%) 0 0 / 300% 100% no-repeat;
+    }
+
+    .turn-shade.fwd  { animation: sweepF .95s ease-in-out; }
+    .turn-shade.back { animation: sweepB .95s ease-in-out; }
+
+    @keyframes sweepF {
+      0%   { opacity: 0; background-position: 0 0; }
+      15%  { opacity: 1; }
+      85%  { opacity: 1; }
+      100% { opacity: 0; background-position: 100% 0; }
+    }
+
+    @keyframes sweepB {
+      0%   { opacity: 0; background-position: 100% 0; }
+      15%  { opacity: 1; }
+      85%  { opacity: 1; }
+      100% { opacity: 0; background-position: 0 0; }
+    }
+
+    .turn-hint {
+      position: absolute;
+      left: 50%;
+      bottom: calc(64px + env(safe-area-inset-bottom, 0px));
+      transform: translateX(-50%);
+      z-index: 119;
+      pointer-events: none;
+      opacity: 0;
+      white-space: nowrap;
+      font-size: .72rem;
+      font-weight: 800;
+      color: var(--deep-maroon);
+      padding: 6px 15px;
+      border-radius: 20px;
+      background: rgba(255,249,239,.96);
+      border: 1px solid rgba(212,175,55,.75);
+      box-shadow: 0 6px 16px rgba(0,0,0,.15);
+    }
+
+    .turn-hint.show {
+      animation: hint 3.6s ease both;
+    }
+
+    @keyframes hint {
+      0%   { opacity: 0; transform: translate(-50%, 10px); }
+      12%  { opacity: 1; transform: translate(-50%, 0); }
+      80%  { opacity: 1; transform: translate(-50%, 0); }
+      100% { opacity: 0; transform: translate(-50%, -4px); }
+    }
+
+    /* =====================================================
+       COVER : TAP TO OPEN
+    ===================================================== */
+
+    body.locked {
+      overflow: hidden;
+    }
+
+    .cover {
+      position: absolute;
+      inset: 0;
+      z-index: 400;
+      perspective: 1800px;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .cover.gone {
+      display: none;
+    }
+
+    .cover.opening {
+      pointer-events: none;
+    }
+
+    .cover-sheet {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transform-origin: left center;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      transition:
+        transform 1.35s cubic-bezier(.645,.045,.355,1),
+        filter 1.35s ease;
+      background: radial-gradient(circle at 50% 38%, #9a1822 0%, #5c0b11 58%, #2a0407 100%);
+      box-shadow: 0 0 60px rgba(0,0,0,.6);
+    }
+
+    .cover-sheet::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        repeating-linear-gradient(45deg, rgba(255,255,255,.035) 0 2px, transparent 2px 5px),
+        repeating-linear-gradient(-45deg, rgba(0,0,0,.06) 0 2px, transparent 2px 5px);
+    }
+
+    .cover.opening .cover-sheet {
+      transform: rotateY(-172deg);
+      filter: brightness(.5);
+    }
+
+    .cover-frame {
+      flex: 1;
+      margin: 14px 18px;
+      padding: 20px 14px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--gold-light);
+      border: 1.5px solid rgba(212,175,55,.9);
+      outline: 1px solid rgba(212,175,55,.4);
+      outline-offset: 5px;
+      border-radius: 8px;
+    }
+
+    .cover-mandala {
+      position: absolute;
+      width: 310px;
+      height: 310px;
+      left: 50%;
+      top: 46%;
+      margin: -155px 0 0 -155px;
+      color: rgba(212,175,55,.3);
+      animation: spin 90s linear infinite;
+      pointer-events: none;
+    }
+
+    .cover-frame > *:not(.cover-mandala) {
+      position: relative;
+    }
+
+    .cover-mono {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      border: 2px solid var(--metallic-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Arima", serif;
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: var(--gold-light);
+      background: rgba(0,0,0,.28);
+      box-shadow: 0 0 0 6px rgba(212,175,55,.13);
+      margin-bottom: 24px;
+    }
+
+    .cover-title {
+      font-family: "Arima", serif;
+      font-size: 1.9rem;
+      font-weight: 800;
+      line-height: 1.4;
+      color: var(--gold-light);
+      text-shadow: 0 2px 12px rgba(0,0,0,.55);
+    }
+
+    .cover-names {
+      font-family: "Arima", serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #fff;
+      margin-top: 16px;
+      line-height: 1.7;
+    }
+
+    .cover-names span {
+      display: block;
+      font-size: 1.05rem;
+      color: var(--metallic-gold);
+    }
+
+    .cover-date {
+      margin-top: 20px;
+      padding: 5px 18px;
+      border: 1px solid rgba(212,175,55,.75);
+      border-radius: 20px;
+      font-size: .88rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: var(--gold-pale);
+    }
+
+    .cover-tap {
+      position: absolute !important;
+      left: 0;
+      right: 0;
+      bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      font-size: .84rem;
+      font-weight: 800;
+      color: var(--gold-pale);
+    }
+
+    .tap-ring {
+      position: relative;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid var(--metallic-gold);
+    }
+
+    .tap-ring::after {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      border-radius: 50%;
+      border: 2px solid var(--metallic-gold);
+      animation: ripple 1.9s ease-out infinite;
+    }
+
+
+    /* =====================================================
+       PAGE NAVIGATION
+    ===================================================== */
+
+    .page-navigation {
+      position: absolute;
+
+      bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      z-index: 120;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      background: rgba(255,255,255,.94);
+
+      border: 1px solid var(--metallic-gold);
+
+      border-radius: 30px;
+
+      padding: 5px 7px;
+
+      box-shadow:
+        0 6px 18px rgba(0,0,0,.15);
+
+      backdrop-filter: blur(8px);
+    }
+
+    .page-nav-btn {
+      width: 35px;
+      height: 35px;
+
+      border: none;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--auspicious-red),
+          var(--deep-maroon)
+        );
+
+      color: var(--gold-light);
+
+      font-size: 1rem;
+
+      cursor: pointer;
+    }
+
+    .page-dots {
+      display: flex;
+
+      gap: 5px;
+    }
+
+    .page-dot {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: #d7c9b0;
+
+      transition: .25s ease;
+    }
+
+    .page-dot.active {
+      width: 18px;
+
+      border-radius: 8px;
+
+      background: var(--auspicious-red);
+    }
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+
+    @media (max-width: 360px) {
+
+      .tab-btn {
+        font-size: .69rem;
+      }
+
+      .person-name {
+        font-size: 1.35rem;
+      }
+
+      .schedule-item {
+        font-size: .82rem;
+      }
+
+      .schedule-item strong {
+        font-size: .78rem;
+      }
+    }
+
+    /* =====================================================
+       DESKTOP : natural page height + normal scrolling
+    ===================================================== */
+
+    @media (min-width: 769px) {
+
+      .app-viewport {
+        height: auto;
+        min-height: 100vh;
+        min-height: 100dvh;
+        overflow: clip;
+      }
+
+      .nav-header {
+        position: sticky;
+        top: 0;
+      }
+
+      .tab-bar {
+        position: sticky;
+        top: calc(64px + env(safe-area-inset-top, 0px));
+      }
+
+      .pages-window {
+        flex: 1 0 auto;
+        overflow: clip;
+      }
+
+      .pages-slider {
+        height: auto;
+        grid-template-rows: auto;
+      }
+
+      .page-view {
+        height: auto;
+        overflow: visible;
+      }
+
+      /* only the open page decides the height */
+      .page-view:not(.is-active):not(.revealing) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .page-navigation {
+        position: fixed;
+      }
+
+      .drawer-overlay {
+        position: fixed;
+      }
+
+      .side-drawer {
+        position: fixed;
+        height: 100vh;
+        height: 100dvh;
+        left: calc(50% - 215px - 290px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .page-view {
+        transition-duration: .01s !important;
+      }
+    }
+
+
+    @media (min-width: 769px) {
+
+      .cover {
+        position: fixed;
+        inset: auto;
+        top: 0;
+        bottom: 0;
+        left: calc(50% - 215px);
+        width: 430px;
+      }
+
+      .turn-hint {
+        position: fixed;
+      }
+    }
+
+    @media (max-width: 360px) {
+
+      .schedule-item strong {
+        white-space: normal;
+      }
+
+      .cover-title {
+        font-size: 1.65rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01s !important;
+        animation-delay: 0s !important;
+        animation-iteration-count: 1 !important;
+      }
+
+      .cover-sheet {
+        transition-duration: .01s !important;
+      }
+    }
+
+
+  </style>
+</head>
+
+<body class="locked">
+
+  <!-- =====================================================
+       MUSIC
+  ===================================================== -->
+
+  <!--
+    Put your actual music file in the same folder:
+    wedding-music.mp3
+
+    Browser autoplay restrictions mean the visitor must
+    tap the 🎵 button once before music can start.
+  -->
+
+  <audio
+    id="weddingAudio"
+    loop
+    preload="metadata"
+  >
+    <source src="wedding-music.mp3" type="audio/mpeg">
+  </audio>
+
+
+  <div class="app-viewport">
+
+    <!-- ===================================================
+         COVER — TAP TO OPEN
+    =================================================== -->
+
+    <div
+      class="cover"
+      id="cover"
+      role="button"
+      tabindex="0"
+      aria-label="அழைப்பிதழைத் திறக்க தட்டவும்"
+    >
+      <div class="cover-sheet">
+
+        <div class="zari"></div>
+
+        <div class="cover-frame">
+
+          <svg class="cover-mandala" viewBox="0 0 260 260" aria-hidden="true">
+            <defs><ellipse id="cpt" cx="130" cy="52" rx="11" ry="34"/></defs>
+            <g fill="none" stroke="currentColor" stroke-width="1.2">
+              <circle cx="130" cy="130" r="124"/>
+              <circle cx="130" cy="130" r="112" stroke-dasharray="2 5"/>
+              <circle cx="130" cy="130" r="30"/>
+              <use href="#cpt"/>
+              <use href="#cpt" transform="rotate(30 130 130)"/>
+              <use href="#cpt" transform="rotate(60 130 130)"/>
+              <use href="#cpt" transform="rotate(90 130 130)"/>
+              <use href="#cpt" transform="rotate(120 130 130)"/>
+              <use href="#cpt" transform="rotate(150 130 130)"/>
+              <use href="#cpt" transform="rotate(180 130 130)"/>
+              <use href="#cpt" transform="rotate(210 130 130)"/>
+              <use href="#cpt" transform="rotate(240 130 130)"/>
+              <use href="#cpt" transform="rotate(270 130 130)"/>
+              <use href="#cpt" transform="rotate(300 130 130)"/>
+              <use href="#cpt" transform="rotate(330 130 130)"/>
+            </g>
+          </svg>
+
+          <div class="cover-mono">D&amp;M</div>
+
+          <div class="cover-title">திருமண அழைப்பிதழ்</div>
+
+          <div class="cover-names">
+            R. தினேஷ்
+            <span>&amp;</span>
+            P. மகாலட்சுமி
+          </div>
+
+          <div class="cover-date">13-11-2026</div>
+
+          <div class="cover-tap">
+            <span class="tap-ring"></span>
+            திறக்க தட்டவும்
+          </div>
+
+        </div>
+
+        <div class="zari"></div>
+
+      </div>
+    </div>
+
+
+
+    <!-- ===================================================
+         HEADER
+    =================================================== -->
+
+    <header class="nav-header">
+
+      <button
+        class="hamburger-btn"
+        onclick="toggleDrawer(true)"
+        aria-label="Menu"
+      >
+        ☰
+      </button>
+
+      <div class="header-title">
+        D&M திருமண அழைப்பிதழ்
+      </div>
+
+      <button
+        class="audio-toggle-btn"
+        id="audioBtn"
+        onclick="toggleAudio()"
+        title="இசை இயக்கம் / நிறுத்தம்"
+        aria-label="Music"
+      >
+        <span id="audioIcon">🎵</span>
+      </button>
+
+    </header>
+
+
+    <!-- ===================================================
+         DRAWER
+    =================================================== -->
+
+    <div
+      class="drawer-overlay"
+      id="drawerOverlay"
+      onclick="toggleDrawer(false)"
+    ></div>
+
+
+    <aside
+      class="side-drawer"
+      id="sideDrawer"
+    >
+
+      <div class="drawer-header">
+
+        <h3 style="font-size:1.2rem;">
+          D&M திருமண அழைப்பிதழ்
+        </h3>
+
+        <p
+          style="
+            font-size:.85rem;
+            margin-top:5px;
+            color:#fff;
+          "
+        >
+          R. தினேஷ் & P. மகாலட்சுமி
+        </p>
+
+      </div>
+
+
+      <ul class="drawer-menu">
+
+        <li
+          class="drawer-item"
+          onclick="navigateFromDrawer(0)"
+        >
+          🪔 முகப்பு
+        </li>
+
+        <li
+          class="drawer-item"
+          onclick="navigateFromDrawer(1)"
+        >
+          💐 மணமக்கள்
+        </li>
+
+        <li
+          class="drawer-item"
+          onclick="navigateFromDrawer(2)"
+        >
+          📅 நிகழ்ச்சி நிரல்
+        </li>
+
+        <li
+          class="drawer-item"
+          onclick="navigateFromDrawer(3)"
+        >
+          📍 மண்டபம்
+        </li>
+
+        <li
+          class="drawer-item"
+          onclick="
+            toggleAudio();
+            toggleDrawer(false);
+          "
+        >
+          🎵 திருமண இசை
+        </li>
+
+      </ul>
+
+    </aside>
+
+
+    <!-- ===================================================
+         TOP TABS
+    =================================================== -->
+
+    <nav class="tab-bar">
+
+      <button
+        class="tab-btn active"
+        onclick="goToPage(0)"
+      >
+        முகப்பு
+      </button>
+
+      <button
+        class="tab-btn"
+        onclick="goToPage(1)"
+      >
+        மணமக்கள்
+      </button>
+
+      <button
+        class="tab-btn"
+        onclick="goToPage(2)"
+      >
+        நிகழ்ச்சி
+      </button>
+
+      <button
+        class="tab-btn"
+        onclick="goToPage(3)"
+      >
+        மண்டபம்
+      </button>
+
+    </nav>
+
+
+    <!-- ===================================================
+         PAGE WINDOW
+    =================================================== -->
+
+    <div class="pages-window">
+
+      <main
+        class="pages-slider"
+        id="pageSlider"
+      >
+
+
+        <!-- =================================================
+             PAGE 1 — HOME
+        ================================================= -->
+
+        <section class="page-view">
+
+          <div class="main-card fade">
+
+            <div class="murugan-halo rise" style="--i:0">
+              <div class="murugan-header-frame">
+                <img
+                  src="murugan_small.jpg"
+                  alt="ஸ்ரீ பாலமுருகன்"
+                  class="murugan-header-img"
+                >
+              </div>
+            </div>
+
+            <h1 class="invitation-title rise" style="--i:1">
+              திருமண அழைப்பிதழ்
+            </h1>
+
+            <p class="invitation-sub rise" style="--i:2">
+              இறைவன் அருளால் நடைபெறும் மங்கள திருமணம்
+            </p>
+
+            <div class="names-summary rise" style="--i:3">
+              <span class="name-line">R. தினேஷ்</span>
+              <span class="join-line">- திருமணம் கரம்பிடிக்கும் -</span>
+              <span class="name-line">P. மகாலட்சுமி</span>
+            </div>
+
+            <!-- COUNTDOWN -->
+
+            <div class="timer-container rise" style="--i:4">
+
+              <div class="timer-title">
+                திருமணத்திற்கு இன்னும்
+              </div>
+
+              <div class="timer-grid">
+
+                <div class="timer-cell">
+                  <div class="timer-num" id="dNum">00</div>
+                  <div class="timer-lbl">நாட்கள்</div>
+                </div>
+
+                <div class="timer-cell">
+                  <div class="timer-num" id="hNum">00</div>
+                  <div class="timer-lbl">மணி</div>
+                </div>
+
+                <div class="timer-cell">
+                  <div class="timer-num" id="mNum">00</div>
+                  <div class="timer-lbl">நிமிடம்</div>
+                </div>
+
+                <div class="timer-cell">
+                  <div class="timer-num" id="sNum">00</div>
+                  <div class="timer-lbl">நொடி</div>
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="zari"></div>
+
+          </div>
+
+          <p class="footer-note rise" style="--i:6">
+            எங்கள் இல்லத் திருமண விழாவிற்கு வருகை தந்து
+            மணமக்களை வாழ்த்த அன்புடன் அழைக்கிறோம்!
+          </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGE 2 — BRIDE & GROOM
+             FLOWER SHOWER
+        ================================================= -->
+
+        <section
+          class="page-view flower-page"
+          id="bridePage"
+        >
+
+          <canvas
+            class="flower-canvas"
+            id="brideFlowerCanvas"
+          ></canvas>
+
+          <h2 class="page-center-heading rise" style="--i:0">
+            மணமக்கள்
+          </h2>
+
+          <!-- GROOM -->
+
+          <div class="person-card inL" style="--i:1">
+
+            <div class="person-medal">
+              <svg viewBox="0 0 40 40" aria-hidden="true">
+                <g fill="currentColor" transform="translate(20 31)">
+                  <ellipse cy="-11" rx="4.2" ry="10"/>
+                  <ellipse cy="-11" rx="4.2" ry="10" transform="rotate(-36)"/>
+                  <ellipse cy="-11" rx="4.2" ry="10" transform="rotate(36)"/>
+                  <ellipse cy="-10" rx="3.6" ry="8.5" transform="rotate(-70)"/>
+                  <ellipse cy="-10" rx="3.6" ry="8.5" transform="rotate(70)"/>
+                </g>
+                <path d="M7 34 Q20 40 33 34" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <span class="person-tag">
+              மணமகன்
+            </span>
+
+            <div class="person-name">
+              R. தினேஷ்
+            </div>
+
+            <div class="family-names">
+              C. ராதாகிருஷ்ணன்
+              <br>
+              R. நவனீதம்
+            </div>
+
+          </div>
+
+          <div class="knot pop" style="--i:2" aria-hidden="true">
+            <div class="knot-rings"><i></i><i></i></div>
+          </div>
+
+          <!-- BRIDE -->
+
+          <div class="person-card bride inR" style="--i:3">
+
+            <div class="person-medal">
+              <svg viewBox="0 0 40 40" aria-hidden="true">
+                <g fill="currentColor" transform="translate(20 31)">
+                  <ellipse cy="-11" rx="4.2" ry="10"/>
+                  <ellipse cy="-11" rx="4.2" ry="10" transform="rotate(-36)"/>
+                  <ellipse cy="-11" rx="4.2" ry="10" transform="rotate(36)"/>
+                  <ellipse cy="-10" rx="3.6" ry="8.5" transform="rotate(-70)"/>
+                  <ellipse cy="-10" rx="3.6" ry="8.5" transform="rotate(70)"/>
+                </g>
+                <path d="M7 34 Q20 40 33 34" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <span class="person-tag bride-tag">
+              மணமகள்
+            </span>
+
+            <div class="person-name">
+              P. மகாலட்சுமி
+            </div>
+
+            <div class="family-names">
+              B. பரமானந்தம்
+              <br>
+              P. சாந்தி
+            </div>
+
+          </div>
+
+          <!-- SONG -->
+
+          <div class="song-card rise" style="--i:5">
+
+            <div class="song-title">
+              🌸 மங்கள வாழ்த்துப் பாடல் 🌸
+            </div>
+
+            <div class="song-text">
+              <span class="verse" style="--v:0">மங்கள நாண் சூட்டும் பொன்னான நேரம்!</span>
+              <span class="verse" style="--v:1">மலர் தூவி வாழ்த்தும் நல்லோரின் கூட்டம்!</span>
+              <span class="verse" style="--v:2">இறையருள் சூழ வாழ்வாங்கு வாழ்க!</span>
+              <span class="verse" style="--v:3">தம்பதியர் இருவர் பல்லாண்டு வாழ்க!</span>
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGE 3 — EVENTS
+             FLOWER SHOWER
+        ================================================= -->
+
+        <section
+          class="page-view flower-page"
+          id="eventPage"
+        >
+
+          <canvas
+            class="flower-canvas"
+            id="eventFlowerCanvas"
+          ></canvas>
+
+          <h2 class="page-center-heading rise" style="--i:0">
+            நிகழ்ச்சி நிரல்
+          </h2>
+
+          <!-- 12 NOV -->
+
+          <div class="schedule-card rise" style="--i:1">
+
+            <div class="schedule-header-badge">
+              12-11-2026 வியாழக்கிழமை
+            </div>
+
+            <div class="schedule-list">
+
+              <div class="schedule-item is-first" data-icon="💐">
+                <span>மணமக்கள் அழைப்பு</span>
+                <strong>மாலை 7.00 மணி</strong>
+              </div>
+
+              <div class="schedule-item" data-icon="🎶">
+                <span>Dj Music</span>
+                <strong>இரவு 7.30 மணி</strong>
+              </div>
+
+              <div class="schedule-item is-last" data-icon="🍛">
+                <span>அறுசுவை விருந்து</span>
+                <strong>இரவு 8.00 மணி</strong>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- 13 NOV -->
+
+          <div class="schedule-card main-day rise" style="--i:2">
+
+            <div class="schedule-header-badge bride-date">
+              13-11-2026 வெள்ளிக்கிழமை
+            </div>
+
+            <div class="schedule-list">
+
+              <div class="schedule-item is-first" data-icon="🪔">
+                <span>சுபமுகூர்த்தம்</span>
+                <strong>காலை 6.00 - 7.30 மணி</strong>
+              </div>
+
+              <div class="schedule-item is-last" data-icon="🍽️">
+                <span>மணவிருந்து</span>
+                <strong>காலை 7.30 மணி</strong>
+              </div>
+
+            </div>
+
+          </div>
+
+          <p class="footer-note rise" style="--i:3">
+            உற்றார் உறவினர் அனைவரும் வருகை தந்து
+            மணமக்களை வாழ்த்துமாறு அன்புடன் கேட்டுக்கொள்கிறோம்!
+          </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGE 4 — VENUE
+        ================================================= -->
+
+        <section class="page-view">
+
+          <div class="venue-card fade">
+
+            <div class="venue-map" aria-hidden="true">
+              <svg viewBox="0 0 400 168" preserveAspectRatio="xMidYMid slice">
+                <rect width="400" height="168" fill="#f5ead0"/>
+                <path d="M-10 136 C70 112 120 158 200 134 S330 100 410 120 L410 180 L-10 180Z" fill="#d6e4d3"/>
+                <g fill="#ead9ac">
+                  <rect x="22" y="16" width="62" height="38" rx="6"/>
+                  <rect x="296" y="20" width="74" height="42" rx="6"/>
+                  <rect x="96" y="70" width="46" height="32" rx="6"/>
+                  <rect x="262" y="86" width="40" height="28" rx="6"/>
+                </g>
+                <g fill="none" stroke-linecap="round">
+                  <path d="M-10 74 C80 56 150 88 232 70 S350 38 410 54" stroke="#d9bd6a" stroke-width="13"/>
+                  <path d="M168 -10 C176 44 214 84 206 180" stroke="#d9bd6a" stroke-width="11"/>
+                  <path d="M290 -10 C300 34 320 64 330 108" stroke="#e5cf8a" stroke-width="6"/>
+                  <path d="M-10 74 C80 56 150 88 232 70 S350 38 410 54" stroke="#fffaf0" stroke-width="8"/>
+                  <path d="M168 -10 C176 44 214 84 206 180" stroke="#fffaf0" stroke-width="6"/>
+                </g>
+                <g transform="translate(196 84)">
+                  <circle class="ripple" r="14"/>
+                  <circle class="ripple r2" r="14"/>
+                  <ellipse rx="9" ry="3" fill="rgba(0,0,0,.25)"/>
+                  <g class="pin">
+                    <path d="M0 0 C-5 -9 -15 -17 -15 -29 A15 15 0 1 1 15 -29 C15 -17 5 -9 0 0Z" fill="#A81B23" stroke="#D4AF37" stroke-width="1.5"/>
+                    <circle cy="-29" r="5.5" fill="#fff"/>
+                  </g>
+                </g>
+              </svg>
+            </div>
+
+            <div class="venue-body">
+
+              <div class="venue-title">
+                🏛️ திருமண மண்டபம்
+              </div>
+
+              <div class="venue-hall-name">
+                A.D.B. திருமண மஹால் (A/c)
+              </div>
+
+              <div class="venue-address">
+                ஆரணி - வேலூர் மெயின் ரோடு,
+                <br>
+                சேவூர்,
+              </div>
+
+              <!-- GOOGLE MAPS -->
+
+              <a
+                class="map-btn"
+                href="https://www.google.com/maps/search/?api=1&query=A.D.B.%20திருமண%20மஹால்%20சேவூர்%20ஆரணி%20வேலூர்"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                📍 Google Maps வழியாக செல்ல
+              </a>
+
+            </div>
+
+          </div>
+
+          <!-- THIRUKKURAL -->
+
+          <div class="kural-card rise" style="--i:3">
+
+            <div class="kural-title">
+              திருக்குறள்
+            </div>
+
+            <div class="kural-text">
+              அன்பும் அறனும் உடைத்தாயின் இல்வாழ்க்கை
+              <br>
+              பண்பும் பயனும் அது.
+            </div>
+
+            <div class="kural-author">
+              திருவள்ளுவர் · குறள் 45
+            </div>
+
+          </div>
+
+          <p class="footer-note rise" style="--i:4">
+            வருகை தந்து மணமக்களை வாழ்த்துமாறு
+            அன்புடன் அழைக்கிறோம்!
+          </p>
+
+        </section>
+
+
+
+      </main>
+
+
+
+      <!-- page-turn light sweep + hint -->
+
+      <div class="turn-shade" id="turnShade"></div>
+
+      <div class="turn-hint" id="turnHint">
+        பக்கத்தைத் திருப்ப தட்டவும் ›
+      </div>
+
+
+      <!-- =================================================
+           PAGE NAVIGATION
+      ================================================= -->
+
+      <div class="page-navigation">
+
+        <button
+          class="page-nav-btn"
+          onclick="previousPage()"
+          aria-label="Previous page"
+        >
+          ‹
+        </button>
+
+
+        <div class="page-dots">
+
+          <span
+            class="page-dot active"
+            id="dot0"
+          ></span>
+
+          <span
+            class="page-dot"
+            id="dot1"
+          ></span>
+
+          <span
+            class="page-dot"
+            id="dot2"
+          ></span>
+
+          <span
+            class="page-dot"
+            id="dot3"
+          ></span>
+
+        </div>
+
+
+        <button
+          class="page-nav-btn"
+          onclick="nextPage()"
+          aria-label="Next page"
+        >
+          ›
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    /* =====================================================
+       PAGE NAVIGATION
+    ===================================================== */
+
+    let currentPage = 0;
+
+    const totalPages = 4;
+
+    const slider =
+      document.getElementById("pageSlider");
+
+    const tabs =
+      document.querySelectorAll(".tab-btn");
+
+
+    const pageSheets =
+      Array.from(
+        document.querySelectorAll("#pageSlider > .page-view")
+      );
+
+    let turnTimers = [];
+
+    /*
+      Book style page turn (like turning a paper):
+      pages before the open one are turned to the left,
+      pages after it wait underneath.
+    */
+
+    function applyPageTurn(from, to) {
+
+      turnTimers.forEach(clearTimeout);
+      turnTimers = [];
+
+      const goingForward = to > from;
+
+      pageSheets.forEach((sheet, i) => {
+
+        const wasTurned = i < from;
+        const willBeTurned = i < to;
+
+        sheet.classList.remove(
+          "is-active",
+          "is-turned",
+          "is-waiting",
+          "turning",
+          "revealing"
+        );
+
+        if (from === to) {
+          // first load - no animation
+          sheet.style.transitionDelay = "";
+          sheet.classList.add(
+            i === to ? "is-active" :
+            willBeTurned ? "is-turned" : "is-waiting"
+          );
+          return;
+        }
+
+        const moves =
+          (i >= Math.min(from, to) && i < Math.max(from, to));
+
+        if (moves) {
+
+          // sheet that flips (forward: leaves, backward: comes back)
+          const order = goingForward
+            ? i - from
+            : (from - 1) - i;
+
+          sheet.classList.add("turning");
+
+          // force the starting position
+          sheet.classList.add(
+            wasTurned ? "is-turned" : "is-active"
+          );
+          void sheet.offsetWidth;
+
+          sheet.classList.remove("is-turned", "is-active");
+
+          const delay = order * 90;
+
+          sheet.style.transitionDelay =
+            delay + "ms, " + delay + "ms, " + delay + "ms, 0s, 0s";
+
+          sheet.classList.add(
+            willBeTurned ? "is-turned" : "is-active"
+          );
+
+          // keep it visible while moving, then settle
+          turnTimers.push(setTimeout(() => {
+            sheet.classList.remove("turning");
+            sheet.style.transitionDelay = "";
+            if (!willBeTurned && i !== to) {
+              sheet.classList.remove("is-active");
+              sheet.classList.add("is-waiting");
+            }
+          }, 900 + delay + 60));
+
+        } else if (i === to) {
+
+          sheet.classList.add("is-active");
+
+        } else if (willBeTurned) {
+
+          sheet.classList.add("is-turned");
+
+        } else {
+
+          sheet.classList.add("is-waiting");
+
+        }
+
+      });
+
+      // page revealed underneath while the top sheet turns
+      if (goingForward && pageSheets[to]) {
+        pageSheets[to].classList.add("revealing");
+      }
+
+      // reset scroll of the newly opened page
+      if (pageSheets[to]) {
+        pageSheets[to].scrollTop = 0;
+      }
+
+      if (from !== to) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+    }
+
+
+    function goToPage(index) {
+
+      if (index < 0) {
+        index = 0;
+      }
+
+      if (index >= totalPages) {
+        index = totalPages - 1;
+      }
+
+      const previousIndex = currentPage;
+
+      currentPage = index;
+
+      applyPageTurn(previousIndex, index);
+
+      afterTurn(previousIndex, index);
+
+
+      tabs.forEach((tab, i) => {
+
+        tab.classList.toggle(
+          "active",
+          i === index
+        );
+
+      });
+
+
+      for (let i = 0; i < totalPages; i++) {
+
+        const dot =
+          document.getElementById("dot" + i);
+
+        if (dot) {
+
+          dot.classList.toggle(
+            "active",
+            i === index
+          );
+
+        }
+
+      }
+
+
+      /*
+        Flower shower:
+        Page 2 = Manamakkal
+        Page 3 = Event
+      */
+
+      if (index === 1) {
+
+        startFlowerShower(
+          document.getElementById("brideFlowerCanvas")
+        );
+
+      }
+
+      if (index === 2) {
+
+        startFlowerShower(
+          document.getElementById("eventFlowerCanvas")
+        );
+
+      }
+
+    }
+
+
+    function nextPage() {
+
+      if (currentPage < totalPages - 1) {
+
+        goToPage(currentPage + 1);
+
+      } else {
+
+        goToPage(0);
+
+      }
+
+    }
+
+
+    function previousPage() {
+
+      if (currentPage > 0) {
+
+        goToPage(currentPage - 1);
+
+      } else {
+
+        goToPage(totalPages - 1);
+
+      }
+
+    }
+
+
+    /* =====================================================
+       DRAWER
+    ===================================================== */
+
+    function toggleDrawer(open) {
+
+      const drawer =
+        document.getElementById("sideDrawer");
+
+      const overlay =
+        document.getElementById("drawerOverlay");
+
+
+      if (open) {
+
+        drawer.classList.add("active");
+        overlay.classList.add("active");
+
+      } else {
+
+        drawer.classList.remove("active");
+        overlay.classList.remove("active");
+
+      }
+
+    }
+
+
+    function navigateFromDrawer(index) {
+
+      goToPage(index);
+
+      toggleDrawer(false);
+
+    }
+
+
+    /* =====================================================
+       SWIPE NAVIGATION
+    ===================================================== */
+
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    const pageWindow =
+      document.querySelector(".pages-window");
+
+
+    pageWindow.addEventListener(
+      "touchstart",
+      function(event) {
+
+        const touch =
+          event.changedTouches[0];
+
+        touchStartX = touch.screenX;
+        touchStartY = touch.screenY;
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    pageWindow.addEventListener(
+      "touchend",
+      function(event) {
+
+        const touch =
+          event.changedTouches[0];
+
+        const deltaX =
+          touch.screenX - touchStartX;
+
+        const deltaY =
+          touch.screenY - touchStartY;
+
+
+        /*
+          Only treat it as a page swipe when
+          horizontal movement is clearly dominant.
+        */
+
+        if (
+          Math.abs(deltaX) > 60 &&
+          Math.abs(deltaX) > Math.abs(deltaY) * 1.2
+        ) {
+
+          if (deltaX < 0) {
+
+            nextPage();
+
+          } else {
+
+            previousPage();
+
+          }
+
+        }
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    /* =====================================================
+       COUNTDOWN
+    ===================================================== */
+
+    /*
+      Wedding:
+      13 November 2026
+      6:00 AM
+      India time
+    */
+
+    const weddingDate =
+      new Date("2026-11-13T06:00:00+05:30");
+
+
+    function setNum(id, value) {
+
+      const el = document.getElementById(id);
+
+      if (el.textContent !== value) {
+
+        el.textContent = value;
+
+        el.classList.remove("tick");
+        void el.offsetWidth;
+        el.classList.add("tick");
+
+      }
+
+    }
+
+
+    function updateCountdown() {
+
+      const now =
+        new Date();
+
+      let difference =
+        weddingDate.getTime() -
+        now.getTime();
+
+
+      if (difference < 0) {
+
+        difference = 0;
+
+      }
+
+
+      const days =
+        Math.floor(
+          difference / (1000 * 60 * 60 * 24)
+        );
+
+
+      const hours =
+        Math.floor(
+          (difference /
+            (1000 * 60 * 60)) % 24
+        );
+
+
+      const minutes =
+        Math.floor(
+          (difference /
+            (1000 * 60)) % 60
+        );
+
+
+      const seconds =
+        Math.floor(
+          (difference / 1000) % 60
+        );
+
+
+      setNum("dNum", String(days).padStart(2, "0"));
+
+
+      setNum("hNum", String(hours).padStart(2, "0"));
+
+
+      setNum("mNum", String(minutes).padStart(2, "0"));
+
+
+      setNum("sNum", String(seconds).padStart(2, "0"));
+
+    }
+
+
+    updateCountdown();
+
+    setInterval(
+      updateCountdown,
+      1000
+    );
+
+
+    /* =====================================================
+       FLOWER SHOWER ENGINE
+    ===================================================== */
+
+    const flowerAnimations =
+      new WeakMap();
+
+
+    function startFlowerShower(canvas) {
+
+      if (!canvas) {
+        return;
+      }
+
+
+      if (flowerAnimations.has(canvas)) {
+        return;
+      }
+
+
+      const ctx =
+        canvas.getContext("2d");
+
+
+      const parent =
+        canvas.parentElement;
+
+
+      let width = 0;
+      let height = 0;
+
+      let flowers = [];
+
+      let animationId;
+
+
+      function resizeCanvas() {
+
+        const rect =
+          parent.getBoundingClientRect();
+
+
+        width =
+          Math.max(1, rect.width);
+
+        height =
+          Math.max(1, rect.height);
+
+
+        const ratio =
+          Math.min(
+            window.devicePixelRatio || 1,
+            2
+          );
+
+
+        canvas.width =
+          width * ratio;
+
+        canvas.height =
+          height * ratio;
+
+
+        canvas.style.width =
+          width + "px";
+
+        canvas.style.height =
+          height + "px";
+
+
+        ctx.setTransform(
+          ratio,
+          0,
+          0,
+          ratio,
+          0,
+          0
+        );
+
+      }
+
+
+      function createFlower(initial) {
+
+        const types = [
+          "rose",
+          "petal",
+          "jasmine",
+          "marigold"
+        ];
+
+
+        return {
+
+          x:
+            Math.random() * width,
+
+          y:
+            initial
+              ? Math.random() * height
+              : -30 - Math.random() * 100,
+
+          size:
+            5 + Math.random() * 9,
+
+          speed:
+            .45 + Math.random() * 1.15,
+
+          sway:
+            .3 + Math.random() * .8,
+
+          angle:
+            Math.random() * Math.PI * 2,
+
+          rotation:
+            (Math.random() - .5) * .06,
+
+          rotationSpeed:
+            (Math.random() - .5) * .025,
+
+          opacity:
+            .45 + Math.random() * .5,
+
+          type:
+            types[
+              Math.floor(
+                Math.random() * types.length
+              )
+            ],
+
+          depth:
+            Math.random()
+
+        };
+
+      }
+
+
+      function initializeFlowers() {
+
+        flowers = [];
+
+        const amount =
+          Math.min(
+            70,
+            Math.max(
+              35,
+              Math.floor(width / 5)
+            )
+          );
+
+
+        for (
+          let i = 0;
+          i < amount;
+          i++
+        ) {
+
+          flowers.push(
+            createFlower(true)
+          );
+
+        }
+
+      }
+
+
+      function drawPetal(
+        flower
+      ) {
+
+        ctx.save();
+
+        ctx.translate(
+          flower.x,
+          flower.y
+        );
+
+        ctx.rotate(
+          flower.angle
+        );
+
+
+        ctx.globalAlpha =
+          flower.opacity;
+
+
+        const s =
+          flower.size;
+
+
+        /*
+          Soft flower/petal shape
+        */
+
+        ctx.beginPath();
+
+        ctx.ellipse(
+          0,
+          0,
+          s * .48,
+          s,
+          0,
+          0,
+          Math.PI * 2
+        );
+
+
+        if (flower.type === "rose") {
+
+          ctx.fillStyle =
+            "#C72B35";
+
+        } else if (
+          flower.type === "jasmine"
+        ) {
+
+          ctx.fillStyle =
+            "#FFF8E7";
+
+        } else if (
+          flower.type === "marigold"
+        ) {
+
+          ctx.fillStyle =
+            "#E67E22";
+
+        } else {
+
+          ctx.fillStyle =
+            "#F3A0A7";
+
+        }
+
+
+        ctx.fill();
+
+
+        /*
+          Soft center
+        */
+
+        if (
+          flower.type === "rose" ||
+          flower.type === "marigold"
+        ) {
+
+          ctx.beginPath();
+
+          ctx.arc(
+            0,
+            0,
+            s * .22,
+            0,
+            Math.PI * 2
+          );
+
+
+          ctx.fillStyle =
+            "#D4AF37";
+
+          ctx.globalAlpha =
+            flower.opacity * .85;
+
+          ctx.fill();
+
+        }
+
+
+        ctx.restore();
+
+      }
+
+
+      function animate() {
+
+        ctx.clearRect(
+          0,
+          0,
+          width,
+          height
+        );
+
+
+        for (
+          let i = 0;
+          i < flowers.length;
+          i++
+        ) {
+
+          const flower =
+            flowers[i];
+
+
+          flower.y +=
+            flower.speed *
+            (0.8 + flower.depth);
+
+
+          flower.x +=
+            Math.sin(
+              flower.y * .018 +
+              flower.angle
+            ) *
+            flower.sway *
+            .25;
+
+
+          flower.angle +=
+            flower.rotationSpeed;
+
+
+          if (
+            flower.y >
+            height + 30
+          ) {
+
+            flowers[i] =
+              createFlower(false);
+
+          }
+
+
+          drawPetal(
+            flower
+          );
+
+        }
+
+
+        animationId =
+          requestAnimationFrame(
+            animate
+          );
+
+      }
+
+
+      resizeCanvas();
+
+      initializeFlowers();
+
+      animate();
+
+
+      window.addEventListener(
+        "resize",
+        function() {
+
+          resizeCanvas();
+
+          initializeFlowers();
+
+        }
+      );
+
+
+      flowerAnimations.set(
+        canvas,
+        animationId
+      );
+
+    }
+
+
+    /* =====================================================
+       MUSIC
+    ===================================================== */
+
+    const audio =
+      document.getElementById(
+        "weddingAudio"
+      );
+
+
+    const audioBtn =
+      document.getElementById(
+        "audioBtn"
+      );
+
+
+    const audioIcon =
+      document.getElementById(
+        "audioIcon"
+      );
+
+
+    async function toggleAudio() {
+
+      try {
+
+        if (
+          !audio.paused
+        ) {
+
+          audio.pause();
+
+          audioBtn.classList.remove(
+            "playing"
+          );
+
+          audioIcon.textContent =
+            "🎵";
+
+          return;
+
+        }
+
+
+        await audio.play();
+
+
+        audioBtn.classList.add(
+          "playing"
+        );
+
+        audioIcon.textContent =
+          "🔊";
+
+      } catch (error) {
+
+        /*
+          If wedding-music.mp3 is missing,
+          show a useful message instead of
+          silently failing.
+        */
+
+        alert(
+          "Music file கிடைக்கவில்லை.\n\n" +
+          "wedding-music.mp3 என்ற பெயரில் " +
+          "music file-ஐ index.html இருக்கும் " +
+          "same folder-ல் வைக்கவும்."
+        );
+
+      }
+
+    }
+
+
+    /* =====================================================
+       MOBILE BROWSER HEIGHT FIX
+    ===================================================== */
+
+    function setAppHeight() {
+
+      if (window.matchMedia("(min-width: 769px)").matches) {
+
+        document.documentElement.style.removeProperty("--app-height");
+
+        return;
+
+      }
+
+      const h =
+        (window.visualViewport
+          ? window.visualViewport.height
+          : window.innerHeight);
+
+      document.documentElement.style.setProperty(
+        "--app-height",
+        h + "px"
+      );
+
+    }
+
+    setAppHeight();
+
+    window.addEventListener("resize", setAppHeight);
+    window.addEventListener("orientationchange", setAppHeight);
+
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener("resize", setAppHeight);
+    }
+
+
+    /* =====================================================
+       INITIAL PAGE
+    ===================================================== */
+
+
+    /* =====================================================
+       COVER · TAP TO TURN · PAGE-TURN EFFECTS
+    ===================================================== */
+
+    const cover = document.getElementById("cover");
+    const turnHintEl = document.getElementById("turnHint");
+    const turnShadeEl = document.getElementById("turnShade");
+
+    let hintsShown = 0;
+
+    function isOpened() {
+      return document.body.classList.contains("opened");
+    }
+
+    function showTurnHint() {
+
+      if (hintsShown >= 4) {
+        return;
+      }
+
+      hintsShown++;
+
+      turnHintEl.classList.remove("show");
+      void turnHintEl.offsetWidth;
+      turnHintEl.classList.add("show");
+
+    }
+
+    function afterTurn(from, to) {
+
+      if (!isOpened() || from === to) {
+        return;
+      }
+
+      turnShadeEl.className = "turn-shade";
+      void turnShadeEl.offsetWidth;
+      turnShadeEl.className =
+        "turn-shade " + (to > from ? "fwd" : "back");
+
+      showTurnHint();
+
+    }
+
+    function tryAutoplay() {
+
+      /* the tap on the cover counts as the user gesture */
+      const p = audio.play();
+
+      if (p && p.then) {
+
+        p.then(function() {
+
+          audioBtn.classList.add("playing");
+          audioIcon.textContent = "🔊";
+
+        }).catch(function() {});
+
+      }
+
+    }
+
+    function openInvitation() {
+
+      if (cover.classList.contains("opening")) {
+        return;
+      }
+
+      cover.classList.add("opening");
+      document.body.classList.add("opened");
+
+      tryAutoplay();
+      showTurnHint();
+
+      setTimeout(function() {
+
+        cover.classList.add("gone");
+        document.body.classList.remove("locked");
+
+      }, 1450);
+
+    }
+
+    cover.addEventListener("click", openInvitation);
+
+    cover.addEventListener("keydown", function(e) {
+
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openInvitation();
+      }
+
+    });
+
+
+    /* tap the page to turn (left edge = back) */
+
+    let lastTapTurn = 0;
+
+    pageWindow.addEventListener("click", function(e) {
+
+      if (!isOpened()) {
+        return;
+      }
+
+      if (e.target.closest("a, button, .page-navigation")) {
+        return;
+      }
+
+      if (window.getSelection && String(window.getSelection()).length > 0) {
+        return;
+      }
+
+      const now = Date.now();
+
+      if (now - lastTapTurn < 700) {
+        return;
+      }
+
+      lastTapTurn = now;
+
+      const rect = pageWindow.getBoundingClientRect();
+
+      if (e.clientX - rect.left < rect.width * 0.22) {
+        previousPage();
+      } else {
+        nextPage();
+      }
+
+    });
+
+
+    document.addEventListener("keydown", function(e) {
+
+      if (!isOpened()) {
+        return;
+      }
+
+      if (e.key === "ArrowRight") {
+        nextPage();
+      } else if (e.key === "ArrowLeft") {
+        previousPage();
+      }
+
+    });
+
+
+    goToPage(0);
+
+  </script>
+
+</body>
+</html>
